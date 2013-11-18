@@ -14,6 +14,10 @@ lBuild:
 	pdflatex $(TEXFLAGS) $(UGE).tex > /dev/null
 	@echo "pdf'en er bygget"
 
+
+zipFile: all
+	zip $(UGE).zip -r src $(UGE).pdf > /dev/null
+
 clean:
 	rm -f $(UGE).aux $(UGE).pdf $(UGE).log $(UGE).out $(UGE).synctex.gz
 	rm -f bin/*.class

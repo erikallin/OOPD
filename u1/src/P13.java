@@ -7,17 +7,17 @@ public class P13 {
     String result;
     System.out.print("Indtast et nummer: ");
 
-    String aa = new Scanner(System.in).next();
+    String input = new Scanner(System.in).next();
 
-    switch (aa.length()) {
+    switch (input.length()) {
       case 4:
-        result = aa.substring(0, 1) + "," + aa.substring(1);
+        result = input.substring(0, 1) + "," + input.substring(1);
         break;
       case 5:
-        result = aa.substring(0, 2) + "," + aa.substring(2);
+        result = input.substring(0, 2) + "," + input.substring(2);
         break;
       case 6:
-        result = aa.substring(0, 3) + "," + aa.substring(3);
+        result = input.substring(0, 3) + "," + input.substring(3);
         break;
       default:
         result = "Ugyldigt input";

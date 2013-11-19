@@ -1,28 +1,27 @@
 import java.util.Scanner;
 /**
- * A class which removes "," from an input and prints the number.
+ * Klassen fjerner kommaer og returnerer tallet uden
  */
 public class P12 {
 
   /**
-   * If a number is given as an argument it will use that else it will
-   * ask for a number.
-   * @param args
+   * Hvis programmet bliver kørt med ét argument vil den bruge dette som input, ellers bliver der spurgt efter et.
+   * @param args argumenter som bliver taget med ind i programmet ved start.
    */
   public static void main(String[] args) {
     String result="";
-    String[] aa;
+    String[] tmpStringArray;
 
     if(args.length != 1) {
       System.out.print("Indtast et nummer: ");
-      aa = (new Scanner(System.in).next()).split(",");
+      tmpStringArray = (new Scanner(System.in).next()).split(",");
     }
-    else {
-      aa = args[0].split(",");
-    }
-    
-    for(String i : aa)
-    	result+=i;
+    else
+      tmpStringArray = args[0].split(",");
+
+
+    for(String i : tmpStringArray)
+      result+=i;
 
     System.out.println(result);
   }

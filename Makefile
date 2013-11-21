@@ -3,11 +3,12 @@
 
 UGE=uge1
 TEXFLAGS=-synctex=1 -interaction=nonstopmode --shell-escape
+JDOCFLAGS=-author -charset UTF-8 -quiet
 
 .start:
-	mkdir -p bin/
+	mkdir -p bin doc
 
-all: jBuild lBuild
+all: jBuild lBuild doc
 
 # Oversætter javakoden
 jBuild: .start
@@ -23,10 +24,16 @@ lBuild:
 zipFile: lBuild
 	zip $(UGE).zip -r src $(UGE).pdf > /dev/null
 
+doc: .start
+	find ./src -type f -name "*.java" | xargs javadoc $(JDOCFLAGS) -d ./doc
+	@echo "Dokumentation af klasser er skrevet"
+
+
 # Fjerner de filer pdflatex danner, herunder pdf'en, og javaklasserne
 clean:
 	rm -f $(UGE).aux $(UGE).pdf $(UGE).log $(UGE).out $(UGE).synctex.gz
 	rm -f bin/*.class
+	rm -rf doc/*
 
 
 # Undertrykker det spam en normal Makefile laver

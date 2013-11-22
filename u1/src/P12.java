@@ -12,15 +12,17 @@ public class P12 {
   public static void main(String[] args) {
     String result="";
     String[] tmpStringArray;
-
+/*
+ * Hvis mængden af inputs er forskellig fra 1, så bedes der om et tal.
+ */
     if(args.length != 1) {
-      System.out.print("Indtast et nummer: ");
+      System.out.print("Indtast et tal: ");
       tmpStringArray = (new Scanner(System.in).next()).split(",");
     }
     else
       tmpStringArray = args[0].split(",");
 
-
+// Går videre til næste tegn
     for(String i : tmpStringArray)
       result+=i;
 

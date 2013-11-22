@@ -1,11 +1,12 @@
 import java.util.Scanner;
+
 /**
- *  Klassen tilføjer kommaer til et vilkårligt tal og returnerer tallet.
- *  Hvis tallet ikke er med i det givne interval printes "Udgyldigt input"
+ * Klassen tilføjer kommaer til et vilkårligt tal og returnerer tallet. Hvis
+ * tallet ikke er med i det givne interval printes "Udgyldigt input".
  */
 public class P13 {
 
-  public static void main(String[] args) {
+  public static void main(String[] _) {
 
     String result;
     System.out.print("Indtast et nummer: ");
@@ -27,7 +28,6 @@ public class P13 {
         result = "Ugyldigt input";
         break;
     }
-
     System.out.println(result);
   }
 

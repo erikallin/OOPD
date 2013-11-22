@@ -1,6 +1,7 @@
 import java.util.Scanner;
 /**
  *  Klassen tilføjer kommaer til et vilkårligt tal og returnerer tallet.
+ *  Hvis tallet ikke er med i det givne interval printes "Udgyldigt input"
  */
 public class P13 {
 
@@ -11,6 +12,7 @@ public class P13 {
 
     String input = new Scanner(System.in).next();
 
+    // Case-værdien beskriver længden af inputtet. Eks. 1000 = 4, 10000 = 5
     switch (input.length()) {
       case 4:
         result = input.substring(0, 1) + "," + input.substring(1);

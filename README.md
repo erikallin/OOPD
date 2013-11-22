@@ -1,4 +1,4 @@
 OOPD
 ====
 
-Den Java vi kode
+Så kører det for os!

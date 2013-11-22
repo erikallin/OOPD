@@ -1,6 +1,6 @@
 # Køres ved at skrive "make" for at oversætte koden og lave pdf'en.
-# For ku at bruge en af kategorierne skrives "make <kategori>".
-
+# For kun at bruge en af kategorierne skrives "make <kategori>".
+MAIN=
 UGE=uge1
 TEXFLAGS=-synctex=1 -interaction=nonstopmode --shell-escape
 JDOCFLAGS=-author -charset UTF-8 -quiet
@@ -32,9 +32,12 @@ doc: .start
 # Fjerner de filer pdflatex danner, herunder pdf'en, og javaklasserne
 clean:
 	rm -f $(UGE).aux $(UGE).log $(UGE).out $(UGE).synctex.gz
-	rm -f bin/*.class
-	rm -rf doc/*
+	rm -rf bin/
+	rm -rf doc/
 
+# Kører .java filerne i src mappen
+run: jBuild
+	java bin/$(MAIN)
 
 # Undertrykker det spam en normal Makefile laver
 .SILENT:

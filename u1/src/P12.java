@@ -1,11 +1,12 @@
 import java.util.Scanner;
 /**
- * Klassen fjerner kommaer og returnerer tallet uden
+ * Klassen fjerner kommaer fra et vilkårligt tal og returnerer tallet uden.
  */
 public class P12 {
 
   /**
-   * Hvis programmet bliver kørt med ét argument vil den bruge dette som input, ellers bliver der spurgt efter et.
+   * Hvis programmet bliver kørt med ét argument vil den bruge dette som input, 
+   * hvis ikke, så bliver der spurgt efter et.
    * @param args argumenter som bliver taget med ind i programmet ved start.
    */
   public static void main(String[] args) {

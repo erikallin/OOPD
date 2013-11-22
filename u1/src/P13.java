@@ -1,6 +1,6 @@
 import java.util.Scanner;
 /**
- * Indsætter et komma.
+ *  Klassen tilføjer kommaer til et vilkårligt tal og returnerer tallet.
  */
 public class P13 {
 

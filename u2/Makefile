@@ -37,7 +37,8 @@ clean:
 
 # Kører .java filerne i src mappen
 run: jBuild
-	java bin/$(MAIN)
+	cd bin
+	java$(MAIN)
 
 # Undertrykker det spam en normal Makefile laver
 .SILENT:

@@ -1,6 +1,6 @@
 # Køres ved at skrive "make" for at oversætte koden og lave pdf'en.
 # For kun at bruge en af kategorierne skrives "make <kategori>".
-MAIN=
+MAIN=TicTacToe
 UGE=uge2
 TEXFLAGS=-synctex=1 -interaction=nonstopmode --shell-escape
 JDOCFLAGS=-author -charset UTF-8 -quiet
@@ -37,8 +37,7 @@ clean:
 
 # Kører .java filerne i src mappen
 run: jBuild
-	cd bin
-	java$(MAIN)
+	cd bin; java $(MAIN)
 
 # Undertrykker det spam en normal Makefile laver
 .SILENT:

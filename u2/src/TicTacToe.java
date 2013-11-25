@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class TicTacToe {
 
   public static char[][] board = new char[3][3];
@@ -25,23 +27,45 @@ public class TicTacToe {
   }
 
   private static boolean gameOver() {
-    return (!(board == null) ||
+    return ((board == null) ||
               board[0][0] == board[1][0] && board[1][0] == board[2][0] ||
               board[1][0] == board[1][1] && board[1][1] == board[1][2] ||
               board[2][0] == board[2][1] && board[2][1] == board[2][2] ||
-              
+
               board[0][0] == board[0][1] && board[0][1] == board[0][2] ||
               board[0][1] == board[1][1] && board[1][1] == board[2][1] ||
               board[0][2] == board[1][2] && board[1][2] == board[2][2] ||
-              
+
               board[0][0] == board[1][1] && board[1][1] == board[2][2] ||
-              board[2][0] == board[1][1] && board[1][1] == board[0][2]);            
-              
+              board[2][0] == board[1][1] && board[1][1] == board[0][2]);
+
   }
-  
+
+
+  private static void placeMove(int row, int col, char piece) {
+    if (!isOccupied(row, col))
+      System.out.println("Ugyldigt træk! Pladsen er taget.");
+    else {
+      board[row][col] = piece;
+      System.out.println(piece +
+          " er blevet lagt på (" + row + "," + col + ")");
+    }
+    printBoard();
+  }
+
+
   public static void main(String[] _) {
-  
-  System.out.println("" + gameOver());
-  
+
+    placeMove(0,0,'X');
+    System.out.println("" + gameOver());
+
+    do {
+      String move = (new Scanner(System.in)).nextIn;
+
+    }
+    while (!gameOver());
+
+
+
   }
 }

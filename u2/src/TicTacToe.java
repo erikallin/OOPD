@@ -4,6 +4,11 @@ public class TicTacToe {
 
   public static char[][] board = new char[3][3];
 
+  private static String makeBold(String text) {
+    return "\u001B[1m" + text + "\u001B[0m";
+
+  }
+
   private static void newBoard() {
     board = new char[3][3];
   }
@@ -54,17 +59,25 @@ public class TicTacToe {
   }
 
 
+
+  private static void play() {
+    System.out.println(makeBold("Let the game begin!"));
+  }
+
+
+
   public static void main(String[] _) {
 
     placeMove(0,0,'X');
     System.out.println("" + gameOver());
 
-    do {
-      String move = (new Scanner(System.in)).nextIn;
+/*    do {
+      String move = (new Scanner(System.in)).next();
 
     }
     while (!gameOver());
-
+*/
+    play();
 
 
   }

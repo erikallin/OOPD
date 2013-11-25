@@ -4,11 +4,19 @@ public class TicTacToe {
 
   public static char[][] board = new char[3][3];
 
+  /**
+   * Tager en String og giver den samme String igen, dog i fed skrift
+   * @param text den tekst man vil have i fed skrift
+   * @return en String med ansi-kode til fed skrift
+   */
   private static String makeBold(String text) {
     return "\u001B[1m" + text + "\u001B[0m";
 
   }
 
+  /**
+   * Giver et nyt bræt ved at overskrive det nuværdende bræt
+   */
   private static void newBoard() {
     board = new char[3][3];
   }
@@ -27,6 +35,15 @@ public class TicTacToe {
   }
 
 
+  /**
+   * Ser om den ønskede plads er optaget. Her tjekkes der om der ikke er nogen
+   * værdi i den ønskede celle.
+   *
+   * @param row hvilken række man vil have
+   * @param col hvilken søjle man vil have
+   *
+   * @return om feltet indeholder noget
+   */
   private static boolean isOccupied(int row, int col) {
     return (!((Character) board[row][col]).equals(0));
   }

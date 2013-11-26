@@ -60,8 +60,15 @@
 
 
 \section*{P3.12}
-Formålet med klassen er, at fjerne de kommaer, som forekommer ved input.\\
-Et eksempel er at, der indtastes tallet 50,000, og klassens mål er så at printe tallet 50000 ud.
+Klassen vil fjerne komma(er), hvis tallet passer med det givne interval.\\
+Der bliver først bedt om "Indtast et vilkårligt tal mellem 1000 og 999999 med kommaer: " , herefter defineres scanneren og integeren "last" defineres til værende længden af inputtet, result.length() \\
+Som ekstra har klassen også fået ekstra-funktionen, at printe "Ugyldigt input" hvis result.length() er skarpt større end 3 og skarpt mindre end 7. Dette gør at værdier mindre end 1000 og større end 999.999 ikke vil antages som gyldige inputs, da det ikke er tal, som klassen er designet til. \\
+Dette betyder, at følgende tests giver følgende outputs: \\[5px]
+999 = Ugyldigt input \\
+10,000 = 10000 \\
+9,9,9,9,9 = 99999 \\
+99,,989,,9 = 999899 \\
+100,2450 = Ugyldigt input
 
 \section*{P3.13}
 Klassen vil indsætte et komma, hvis tallet passer med det givne interval.\\

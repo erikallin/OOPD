@@ -121,6 +121,22 @@ public class TicTacToe {
     newBoard();
     System.out.println(makeBold("Let the game begin!\n"));
 
+       int x, y; // koordinater
+       char tegn = 0;
+       String[] input = new String[3]; // Et array som holder x, y og tegn
+
+       do {
+         input = (new Scanner(System.in).nextLine()).split(" ");
+
+         x = Integer.parseInt(input[0]);
+         y = Integer.parseInt(input[1]);
+         tegn = input[2].charAt(0);
+
+         placeMove(x, y, tegn);
+       }
+       while (!gameOver());
+
+
 
   }
 

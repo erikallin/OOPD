@@ -11,11 +11,10 @@ public class TicTacToe {
    */
   private static String makeBold(String text) {
     return "\u001B[1m" + text + "\u001B[0m";
-
   }
 
   /**
-   * Giver et nyt bræt ved at overskrive det nuværdende bræt
+   * Giver et nyt bræt ved at overskrive det nuværende bræt
    */
   private static void newBoard() {
     board = new char[3][3];
@@ -45,11 +44,19 @@ public class TicTacToe {
    * @return om feltet indeholder noget
    */
   private static boolean isOccupied(int row, int col) {
-    return (!((Character) board[row][col]).equals(0));
+    return (board[row][col] == 'X' || board[row][col] == 'O');
   }
 
   private static boolean gameOver() {
-    return ((board == null) ||
+
+  for (int i = 0; i < 3; i++)
+    for (int j = 0; i < 3; j++)
+
+    
+  }
+
+
+   /* return ((board == null) ||
               board[0][0] == board[1][0] && board[1][0] == board[2][0] ||
               board[1][0] == board[1][1] && board[1][1] == board[1][2] ||
               board[2][0] == board[2][1] && board[2][1] == board[2][2] ||
@@ -59,13 +66,13 @@ public class TicTacToe {
               board[0][2] == board[1][2] && board[1][2] == board[2][2] ||
 
               board[0][0] == board[1][1] && board[1][1] == board[2][2] ||
-              board[2][0] == board[1][1] && board[1][1] == board[0][2]);
+              board[2][0] == board[1][1] && board[1][1] == board[0][2] ||
+              ; */
 
-  }
 
 
   private static void placeMove(int row, int col, char piece) {
-    if (!isOccupied(row, col))
+    if (isOccupied(row, col))
       System.out.println("Ugyldigt træk! Pladsen er taget.");
     else {
       board[row][col] = piece;

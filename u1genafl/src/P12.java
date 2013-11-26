@@ -11,7 +11,6 @@ public class P12 {
     String result = new Scanner(System.in).next();
     int last =  result.length();
     result = result.replace(",","");
-    
 
    // BONUS: Hvis tallet ikke er i intervallet printes "Ugyldigt input".
    if (last > 3 && last < 7) 

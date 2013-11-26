@@ -1,6 +1,6 @@
 # Køres ved at skrive "make" for at oversætte koden og lave pdf'en.
-# For ku at bruge en af kategorierne skrives "make <kategori>".
-
+# For kun at bruge en af kategorierne skrives "make <kategori>".
+MAIN=
 UGE=uge1
 TEXFLAGS=-synctex=1 -interaction=nonstopmode --shell-escape
 JDOCFLAGS=-author -charset UTF-8 -quiet
@@ -35,6 +35,9 @@ clean:
 	rm -f bin/*.class
 	rm -rf doc/*
 
+# Kører .java filerne i src mappen
+run: jBuild
+	cd bin; java $(MAIN)
 
 # Undertrykker det spam en normal Makefile laver
 .SILENT:

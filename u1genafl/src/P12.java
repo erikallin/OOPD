@@ -4,28 +4,23 @@ import java.util.Scanner;
  */
 public class P12 {
 
-  /**
-   * Hvis programmet bliver kørt med ét argument vil den bruge dette som input, 
-   * hvis ikke, så bliver der spurgt efter et.
-   * @param args argumenter som bliver taget med ind i programmet ved start.
-   */
-  public static void main(String[] args) {
-    String result="";
-    String[] tmpStringArray;
-   /*
-    * Hvis mængden af inputs er forskellig fra 1, så bedes der om et tal.
-    */
-    if(args.length != 1) {
-      System.out.print("Indtast et tal: ");
-      tmpStringArray = (new Scanner(System.in).next()).split(",");
-    }
-    else
-      tmpStringArray = args[0].split(",");
+  public static void main(String[] _) {
 
-    // Går videre til næste tegn
-    for(String i : tmpStringArray)
-      result+=i;
+    System.out.print("Indtast et vilkårligt tal mellem 1000 og 999999 med kommaer: ");
+     
+    String result = new Scanner(System.in).next();
+    int last =  result.length();
+    result = result.replace(",","");
+    
 
-    System.out.println(result);
+   // BONUS: Hvis tallet ikke er i intervallet printes "Ugyldigt input".
+   if (last > 3 && last < 7) 
+   {
+    System.out.println(result); 
+   }
+   else 
+   { 
+     System.out.println("Ugyldigt input");
+   }
   }
 }

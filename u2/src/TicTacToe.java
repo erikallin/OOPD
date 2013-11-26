@@ -24,15 +24,15 @@ public class TicTacToe {
     for(int i = 0; i < 3; i++) {
       for (int j = 0; j < 3; j++) {
         if (j == 2) {
-        	if (isOccupied(i,j)) 
- 		      System.out.print("|" + board[i][j] + "|");
- 		    else
- 		      System.out.print("|" + " " + "|");
+          if (isOccupied(i,j))
+           System.out.print("|" + board[i][j] + "|");
+         else
+           System.out.print("|" + " " + "|");
         }
         else
-          if (isOccupied(i,j)) 
+          if (isOccupied(i,j))
             System.out.print("|" + board[i][j]);
-          else 
+          else
             System.out.print("|" + " ");
       }
       System.out.println();
@@ -53,25 +53,29 @@ public class TicTacToe {
     return (board[row][col] == 'X' || board[row][col] == 'O');
   }
 
+  /**
+   * Ser brættet er fyldt og om en af brikkerne har tre på stribe
+   * @return om spillet er slut
+   */
   private static boolean gameOver() {
    /* for (int i = 0; i < 3; i++)
       for (int j = 0; j < 3; j++)
         if (board[i][j] != 'X' || board[i][j] != 'O')
-    	  return false; */
-    
+        return false; */
+
     int bolleCount = 0;
     int krydsCount = 0;
     int pladsCount = 9;
 
     for (int row = 0; row < 3; row++) {
       for (int col = 0; col < 3; col++) {
-        if (board[row][col] == 'X') 
-          krydsCount++;  
-        else 
-          if (board[row][col] == 'O') 
+        if (board[row][col] == 'X')
+          krydsCount++;
+        else
+          if (board[row][col] == 'O')
             bolleCount++;
-          else 
-            pladsCount--; 
+          else
+            pladsCount--;
       }
     }
     return (krydsCount == 3 || bolleCount == 3 || pladsCount == 0);
@@ -88,6 +92,13 @@ public class TicTacToe {
 
 
 
+  /**
+   * Indsætter et givent tegn på den ønskede plads og viser brættets nuværdende
+   * status
+   * @param row hvilken række man vil placere tegnet
+   * @param col hvilken søjle man vil placere tegnet
+   * @param piece tegnet som skal placeres
+   */
   private static void placeMove(int row, int col, char piece) {
     if (isOccupied(row, col))
       System.out.println("Ugyldigt træk! Pladsen er taget.");
@@ -100,7 +111,11 @@ public class TicTacToe {
   }
 
 
+  /**
+   * Starter spillet
+   */
   private static void play() {
+    newBoard();
     System.out.println(makeBold("Let the game begin!\n"));
 
 

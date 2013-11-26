@@ -20,6 +20,9 @@ public class TicTacToe {
     board = new char[3][3];
   }
 
+  /**
+   * Printer brættets nuværende status
+   */
    private static void printBoard() {
     for(int i = 0; i < 3; i++) {
       for (int j = 0; j < 3; j++) {
@@ -54,7 +57,7 @@ public class TicTacToe {
   }
 
   /**
-   * Ser brættet er fyldt og om en af brikkerne har tre på stribe
+   * Ser brættet er fyldt og om en af spillerne har tre på stribe
    * @return om spillet er slut
    */
   private static boolean gameOver() {
@@ -93,7 +96,7 @@ public class TicTacToe {
 
 
   /**
-   * Indsætter et givent tegn på den ønskede plads og viser brættets nuværdende
+   * Indsætter et givent tegn på den ønskede plads og viser brættets nuværende
    * status
    * @param row hvilken række man vil placere tegnet
    * @param col hvilken søjle man vil placere tegnet

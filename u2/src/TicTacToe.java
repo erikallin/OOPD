@@ -23,12 +23,18 @@ public class TicTacToe {
    private static void printBoard() {
     for(int i = 0; i < 3; i++) {
       for (int j = 0; j < 3; j++) {
-        if (j == 2)
-          System.out.print("|" + board[i][j] + "|");
+        if (j == 2) {
+        	if (isOccupied(i,j)) 
+ 		      System.out.print("|" + board[i][j] + "|");
+ 		    else
+ 		      System.out.print("|" + " " + "|");
+        }
         else
-          System.out.print("|" + board[i][j]);
+          if (isOccupied(i,j)) 
+            System.out.print("|" + board[i][j]);
+          else 
+            System.out.print("|" + " ");
       }
-
       System.out.println();
     }
   }
@@ -47,26 +53,38 @@ public class TicTacToe {
     return (board[row][col] == 'X' || board[row][col] == 'O');
   }
 
-/*  private static boolean gameOver() {
+  private static boolean gameOver() {
+   /* for (int i = 0; i < 3; i++)
+      for (int j = 0; j < 3; j++)
+        if (board[i][j] != 'X' || board[i][j] != 'O')
+    	  return false; */
+    
+    int bolleCount = 0;
+    int krydsCount = 0;
+    int pladsCount = 9;
 
-  for (int i = 0; i < 3; i++)
-    for (int j = 0; i < 3; j++)
-
+    for (int row = 0; row < 3; row++) {
+      for (int col = 0; col < 3; col++) {
+        if (board[row][col] == 'X') 
+          krydsCount++;  
+        else 
+          if (board[row][col] == 'O') 
+            bolleCount++;
+          else 
+            pladsCount--; 
+      }
+    }
+    return (krydsCount == 3 || bolleCount == 3 || pladsCount == 0);
   }
-*/
 
-   /* return ((board == null) ||
+/*
               board[0][0] == board[1][0] && board[1][0] == board[2][0] ||
               board[1][0] == board[1][1] && board[1][1] == board[1][2] ||
               board[2][0] == board[2][1] && board[2][1] == board[2][2] ||
 
               board[0][0] == board[0][1] && board[0][1] == board[0][2] ||
               board[0][1] == board[1][1] && board[1][1] == board[2][1] ||
-              board[0][2] == board[1][2] && board[1][2] == board[2][2] ||
-
-              board[0][0] == board[1][1] && board[1][1] == board[2][2] ||
-              board[2][0] == board[1][1] && board[1][1] == board[0][2] ||
-              ; */
+              board[0][2] == board[1][2] && board[1][2] == board[2][2]); */
 
 
 
@@ -82,28 +100,20 @@ public class TicTacToe {
   }
 
 
-
   private static void play() {
     System.out.println(makeBold("Let the game begin!\n"));
 
 
   }
 
-
-
   public static void main(String[] _) {
 
-//    System.out.println("" + gameOver());
-
-/*    do {
-      String move = (new Scanner(System.in)).next();
-
-    }
-    while (!gameOver());
-*/
     play();
-    placeMove(0,0,'X');
+    placeMove(0,2,'X');
+    placeMove(1,1,'X');
+    placeMove(2,0,'X');
 
+    System.out.println("" + gameOver());
 
   }
 }

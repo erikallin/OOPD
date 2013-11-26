@@ -47,14 +47,13 @@ public class TicTacToe {
     return (board[row][col] == 'X' || board[row][col] == 'O');
   }
 
-  private static boolean gameOver() {
+/*  private static boolean gameOver() {
 
   for (int i = 0; i < 3; i++)
     for (int j = 0; i < 3; j++)
 
-    
   }
-
+*/
 
    /* return ((board == null) ||
               board[0][0] == board[1][0] && board[1][0] == board[2][0] ||
@@ -85,15 +84,16 @@ public class TicTacToe {
 
 
   private static void play() {
-    System.out.println(makeBold("Let the game begin!"));
+    System.out.println(makeBold("Let the game begin!\n"));
+
+
   }
 
 
 
   public static void main(String[] _) {
 
-    placeMove(0,0,'X');
-    System.out.println("" + gameOver());
+//    System.out.println("" + gameOver());
 
 /*    do {
       String move = (new Scanner(System.in)).next();
@@ -102,6 +102,7 @@ public class TicTacToe {
     while (!gameOver());
 */
     play();
+    placeMove(0,0,'X');
 
 
   }

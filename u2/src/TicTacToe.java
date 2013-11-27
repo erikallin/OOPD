@@ -70,6 +70,7 @@ public class TicTacToe {
     int krydsCount = 0;
     int pladsCount = 9;
 
+    // TODO få den til at tælle rigtigt!
     for (int row = 0; row < 3; row++) {
       for (int col = 0; col < 3; col++) {
         if (board[row][col] == 'X')
@@ -93,6 +94,18 @@ public class TicTacToe {
               board[0][1] == board[1][1] && board[1][1] == board[2][1] ||
               board[0][2] == board[1][2] && board[1][2] == board[2][2]); */
 
+
+  /**
+   * Ser om tegnet er X eller O
+   * @return om tegnet er et legalt input
+   */
+  private static boolean isLegalChar(char piece) {
+    return piece == 'X' || piece == 'O';
+  }
+
+  private static boolean isLegalCoord(int row, int col) {
+    return ((row >= 0 && row < 3) && (col >= 0 && col < 3));
+  }
 
 
   /**
@@ -131,9 +144,14 @@ public class TicTacToe {
 
          x = Integer.parseInt(input[0]);
          y = Integer.parseInt(input[1]);
-         tegn = input[2].charAt(0);
+         tegn = input[2].toUpperCase().charAt(0);
 
-         placeMove(x, y, tegn);
+         if (isLegalChar(tegn) && isLegalCoord(x, y))
+           placeMove(x, y, tegn);
+         else {
+           System.out.println("Tegn og koordinat skal være legale!");
+           //continue;
+         }
        }
        while (!gameOver());
 

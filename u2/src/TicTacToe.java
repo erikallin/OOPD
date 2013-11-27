@@ -126,6 +126,7 @@ public class TicTacToe {
        String[] input = new String[3]; // Et array som holder x, y og tegn
 
        do {
+         System.out.print("Indtast et koordinat og brik\n>");
          input = (new Scanner(System.in).nextLine()).split(" ");
 
          x = Integer.parseInt(input[0]);

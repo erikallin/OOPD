@@ -104,7 +104,7 @@ public class TicTacToe {
    */
   private static void placeMove(int row, int col, char piece) {
     if (isOccupied(row, col))
-      System.out.println("Ugyldigt træk! Pladsen er taget.");
+      System.out.println("\u001B[31mUgyldigt træk! Pladsen er taget.\u001B[0m");
     else {
       board[row][col] = piece;
       System.out.println(piece +
@@ -137,18 +137,14 @@ public class TicTacToe {
        }
        while (!gameOver());
 
-
-
+    System.out.print("\nVil du starte et nyt spil? (y/n) ");
+    if (new Scanner(System.in).next().equals("y"))
+      play();
   }
 
   public static void main(String[] _) {
 
     play();
-    placeMove(0,2,'X');
-    placeMove(1,1,'X');
-    placeMove(2,0,'X');
-
-    System.out.println("" + gameOver());
 
   }
 }

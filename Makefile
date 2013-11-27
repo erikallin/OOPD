@@ -41,3 +41,4 @@ run: jBuild
 
 # Undertrykker det spam en normal Makefile laver
 .SILENT:
+#http://xkcd.com/1296/

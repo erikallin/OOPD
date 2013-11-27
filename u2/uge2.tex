@@ -58,31 +58,43 @@
 
 % let's begin
 
-
-\section*{makeBold}
+\section*{Kode}
+\subsection*{makeBold}
 Denne funktion bruges til velkomstteksten, men kan bruges til andet, hvis det
 bliver nødvendigt.
 
 
-\section*{newBoard}
+\subsection*{newBoard}
 Ved at overskrive det bræt, som allerede findes, fås et tomt bræt.
 
 
-\section*{printBoard}
+\subsection*{printBoard}
 Funktionen løber hele multiarrayet igennem og printer et mellemrum hvis feltet
 ikke er optaget, ellers indholdet i feltet.\\
 Hvis det er det yderste felt til højre vil der tilføjes endnu en "|" for at få
 et pænt bræt.
 
 
-\section*{gameOver}
+\subsection*{gameOver}
 Ser om pladen er fyldt eller om der er tre ens på stribe.
 
 
 
 
-\section*{play}
+\subsection*{play}
 Starter spillet. Det kører indtil gameOver() returnerer sandt, derefter spørger
 den om man vil spille igen.
+
+\subsection*{isOccupied}
+Ser om det ønskede felt er optaget, dvs. om der ligger et X eller O, da det er de gyldige brikker.
+
+\subsection*{placeMove}
+Først tjekkes der om feltet er optaget og hvis det er, så skriver i rødt at feltet er taget, ellers placerer den brikken.
+
+
+\section*{Overvejelser}
+\subsection*{Inputtyper}
+Vi har valgt at sige at bruger kun kan benytte sig af $\{0,1,2\}$, X og O. Vi har valg ikke at teste for om brugers input er legalt og derfor kan programmet slutte uventet.
+
 
 \end{document}

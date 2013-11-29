@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class TicTacToe {
 
   public static char[][] board = new char[3][3];
+  private static char winner = 0;
 
   /**
    * Tager en String og giver den samme String igen, dog i fed skrift
@@ -56,47 +57,22 @@ public class TicTacToe {
     return (board[row][column] == 'X' || board[row][column] == 'O');
   }
 
+
   /**
    * Ser brættet er fyldt og om en af spillerne har tre på stribe
    * @return om spillet er slut
    */
   private static boolean gameOver() {
-   /* for (int i = 0; i < 2; i++)
-      for (int j = 0; j < 2; j++)
-        return (board[i][j] == board[i][++j] && isLegalChar(tegn) || 
-                board[i][j] == board[++i][j] && isLegalChar(tegn) ||
-                board[0][0] == board[1][1] && board[1][1] == board[2][2] && isLegalChar(tegn) ||
-                board[0][2] == board[1][1] && board[1][1] == board[2][0] && isLegalChar(tegn)); */
-                 
-
-    int bolleCount = 0;
-    int krydsCount = 0;
-    int pladsCount = 9;
-
-    // TODO få den til at tælle rigtigt!
-    for (int row = 0; row < 3; row++) {
-      for (int column = 0; column < 3; column++) {
-        if (board[row][column] == 'X')
-          krydsCount++;
-        else
-          if (board[row][column] == 'O')
-            bolleCount++;
-          else
-            pladsCount--;
-      }
-    }
-    return (krydsCount == 3 || bolleCount == 3 || pladsCount == 0);
+    return 
+     (board[0][0] == board[1][0] && board[1][0] == board[2][0] && isOccupied(0,0) ||
+      board[1][0] == board[1][1] && board[1][1] == board[1][2] && isOccupied(1,0) ||
+      board[2][0] == board[2][1] && board[2][1] == board[2][2] && isOccupied(2,0) ||
+      board[0][0] == board[0][1] && board[0][1] == board[0][2] && isOccupied(0,0) ||
+      board[0][1] == board[1][1] && board[1][1] == board[2][1] && isOccupied(0,1) ||
+      board[0][2] == board[1][2] && board[1][2] == board[2][2] && isOccupied(0,2) ||
+      board[0][0] == board[1][1] && board[1][1] == board[2][2] && isOccupied(0,0) ||
+      board[0][2] == board[1][1] && board[1][1] == board[2][0] && isOccupied(0,2)); 
   }
-
-/*
-              board[0][0] == board[1][0] && board[1][0] == board[2][0] ||
-              board[1][0] == board[1][1] && board[1][1] == board[1][2] ||
-              board[2][0] == board[2][1] && board[2][1] == board[2][2] ||
-
-              board[0][0] == board[0][1] && board[0][1] == board[0][2] ||
-              board[0][1] == board[1][1] && board[1][1] == board[2][1] ||
-              board[0][2] == board[1][2] && board[1][2] == board[2][2]); */
-
 
   /**
    * Ser om tegnet er X eller O
@@ -142,6 +118,7 @@ public class TicTacToe {
   private static void play() {
     newBoard();
     System.out.println(makeBold("Let the game begin!\n"));
+    int i = 9; // Antal pladser
 
        int x, y; // koordinater
        char tegn = 0;
@@ -155,16 +132,21 @@ public class TicTacToe {
          y = Integer.parseInt(input[1]);
          tegn = input[2].toUpperCase().charAt(0);
 
-         if (isLegalChar(tegn) && isLegalCoord(x, y))
-           placeMove(x, y, tegn);
+         if (isLegalChar(tegn) && isLegalCoord(x, y)) {
+           placeMove(x, y, tegn); 
+           i--;
+         } 
          else {
            System.out.println("Tegn og koordinat skal være legale!");
            //continue;
          }
        }
-       while (!gameOver());
-
-    System.out.print("\nVil du starte et nyt spil? (y/n) ");
+       while (i > 0 && !gameOver()); // Enten bliver pladen fyldt, ellers har vi en vinder fra gameOver()
+       if (i == 0)
+       	System.out.println("Uafgjort!");
+       else
+         System.out.println("Vinderen er: " + tegn);
+       System.out.print("\nVil du starte et nyt spil? (y/n) ");
     if (new Scanner(System.in).next().equals("y"))
       play();
   }

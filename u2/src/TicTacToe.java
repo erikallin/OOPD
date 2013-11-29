@@ -14,14 +14,14 @@ public class TicTacToe {
   }
 
   /**
-   * Giver et nyt bræt ved at overskrive det nuværende bræt
+   * Giver et nyt bræt ved at overskrive/nulstille det nuværende bræt.
    */
   private static void newBoard() {
     board = new char[3][3];
   }
 
   /**
-   * Printer brættets nuværende status
+   * Printer brættets nuværende status.
    */
    private static void printBoard() {
     for(int i = 0; i < 3; i++) {
@@ -48,12 +48,12 @@ public class TicTacToe {
    * værdi i den ønskede celle.
    *
    * @param row hvilken række man vil have
-   * @param col hvilken søjle man vil have
+   * @param column hvilken søjle man vil have
    *
    * @return om feltet indeholder noget
    */
-  private static boolean isOccupied(int row, int col) {
-    return (board[row][col] == 'X' || board[row][col] == 'O');
+  private static boolean isOccupied(int row, int column) {
+    return (board[row][column] == 'X' || board[row][column] == 'O');
   }
 
   /**
@@ -61,10 +61,13 @@ public class TicTacToe {
    * @return om spillet er slut
    */
   private static boolean gameOver() {
-   /* for (int i = 0; i < 3; i++)
-      for (int j = 0; j < 3; j++)
-        if (board[i][j] != 'X' || board[i][j] != 'O')
-        return false; */
+   /* for (int i = 0; i < 2; i++)
+      for (int j = 0; j < 2; j++)
+        return (board[i][j] == board[i][++j] && isLegalChar(tegn) || 
+                board[i][j] == board[++i][j] && isLegalChar(tegn) ||
+                board[0][0] == board[1][1] && board[1][1] == board[2][2] && isLegalChar(tegn) ||
+                board[0][2] == board[1][1] && board[1][1] == board[2][0] && isLegalChar(tegn)); */
+                 
 
     int bolleCount = 0;
     int krydsCount = 0;
@@ -72,11 +75,11 @@ public class TicTacToe {
 
     // TODO få den til at tælle rigtigt!
     for (int row = 0; row < 3; row++) {
-      for (int col = 0; col < 3; col++) {
-        if (board[row][col] == 'X')
+      for (int column = 0; column < 3; column++) {
+        if (board[row][column] == 'X')
           krydsCount++;
         else
-          if (board[row][col] == 'O')
+          if (board[row][column] == 'O')
             bolleCount++;
           else
             pladsCount--;
@@ -97,14 +100,20 @@ public class TicTacToe {
 
   /**
    * Ser om tegnet er X eller O
+   * @param char det tegn der indtastes
    * @return om tegnet er et legalt input
    */
   private static boolean isLegalChar(char piece) {
     return piece == 'X' || piece == 'O';
   }
 
-  private static boolean isLegalCoord(int row, int col) {
-    return ((row >= 0 && row < 3) && (col >= 0 && col < 3));
+  /**
+  * @param row hvilken række der bliver tjekket
+  * @param column hvilken søjle der bliver tjekket 
+  * @return om den indtastede værdi er et lovligt koordinat
+  */
+  private static boolean isLegalCoord(int row, int column) {
+    return ((row >= 0 && row < 3) && (column >= 0 && column < 3));
   }
 
 
@@ -112,16 +121,16 @@ public class TicTacToe {
    * Indsætter et givent tegn på den ønskede plads og viser brættets nuværende
    * status
    * @param row hvilken række man vil placere tegnet
-   * @param col hvilken søjle man vil placere tegnet
+   * @param column hvilken søjle man vil placere tegnet
    * @param piece tegnet som skal placeres
    */
-  private static void placeMove(int row, int col, char piece) {
-    if (isOccupied(row, col))
+  private static void placeMove(int row, int column, char piece) {
+    if (isOccupied(row, column))
       System.out.println("\u001B[31mUgyldigt træk! Pladsen er taget.\u001B[0m");
     else {
-      board[row][col] = piece;
+      board[row][column] = piece;
       System.out.println(piece +
-          " er blevet lagt på (" + row + "," + col + ")");
+          " er blevet lagt på (" + row + "," + column + ")");
     }
     printBoard();
   }

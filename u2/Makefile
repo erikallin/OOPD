@@ -3,7 +3,7 @@
 MAIN=TicTacToe
 UGE=uge2
 TEXFLAGS=-synctex=1 -interaction=nonstopmode --shell-escape
-JDOCFLAGS=-author -charset UTF-8 -quiet
+JDOCFLAGS=-author -private -charset UTF-8 -quiet
 
 .start:
 	mkdir -p bin doc

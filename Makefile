@@ -1,9 +1,9 @@
 # Køres ved at skrive "make" for at oversætte koden og lave pdf'en.
 # For kun at bruge en af kategorierne skrives "make <kategori>".
 MAIN=
-UGE=uge1
+UGE=
 TEXFLAGS=-synctex=1 -interaction=nonstopmode --shell-escape
-JDOCFLAGS=-author -charset UTF-8 -quiet
+JDOCFLAGS=-author -private -charset UTF-8 -quiet
 
 .start:
 	mkdir -p bin doc

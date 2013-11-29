@@ -31,9 +31,9 @@ doc: .start
 
 # Fjerner de filer pdflatex danner, herunder pdf'en, og javaklasserne
 clean:
-	rm -f $(UGE).aux $(UGE).log $(UGE).out $(UGE).synctex.gz
-	rm -f bin/*.class
-	rm -rf doc/*
+	rm -f $(UGE).aux $(UGE).log $(UGE).out $(UGE).synctex.gz $(UGE).zip
+	rm -rf bin/
+	rm -rf doc/
 
 # Kører .java filerne i src mappen
 run: jBuild

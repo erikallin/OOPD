@@ -1,7 +1,15 @@
+import java.util.Scanner;
+
 public class Nim {
 
   public static void main(String[] _) {
 
-    System.out.println("LELZ");
+    Game a = new Game();
+
+    while(a.gameOver()) {
+      a.printHeap();
+    }
+
+
   }
 }

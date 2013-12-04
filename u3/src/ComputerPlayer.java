@@ -2,17 +2,22 @@ import java.util.Random;
 
 public class ComputerPlayer {
 
-  public ComputerPlayer(boolean difficulty) {
-    Game n = new Game();
+  private Game n;
 
-    difficulty ? smartMove() : dumbMove();
+  public ComputerPlayer(boolean difficulty) {
+    n = new Game();
+
+    if (difficulty)
+     smartMove();
+   else
+     dumbMove();
   }
   public void smartMove(){
 
   }
   public void dumbMove(){
-  int antal = Random.nextint(n.getHeap()/2)+1;
+  int antal = new Random().nextInt(n.getHeap()/2)+1;
   n.remove(antal);
-  
+
   }
 }

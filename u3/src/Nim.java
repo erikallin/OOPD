@@ -6,10 +6,12 @@ public class Nim {
 
     Game a = new Game();
 
-    while(a.gameOver()) {
-      a.printHeap();
-    }
+    a.printHeap();
 
+    while(!(a.gameOver())) {
+      a.remove(new Scanner(System.in).nextInt());
+      com.remove();
+    }
 
   }
 }

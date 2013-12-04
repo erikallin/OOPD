@@ -8,6 +8,7 @@ public class Game {
     this.heap = new Random().nextInt(90)+10;
 
 
+
   }
 
   public void printHeap() {
@@ -19,13 +20,14 @@ public class Game {
   }
 
   public boolean isLegit(int number) {
-    return (number < 2 || number > heap / 2);
+    return ((number > 0 && number <= heap / 2) || number == 1);
   }
 
   public void remove(int number) {
     if (isLegit(number)) {
       this.heap -= number;
-//      changePlayer();
+      this.printHeap();
+
     }
     else
       System.out.println("Ugyldigt træk! prøv igen: ");
@@ -33,7 +35,7 @@ public class Game {
 
 
   public boolean gameOver() {
-    return (this.heap <= 1);
+    return (this.heap == 0);
   }
 
 }

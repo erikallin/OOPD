@@ -15,9 +15,8 @@ public class ComputerPlayer {
   public void smartMove(){
 
   }
-  public void dumbMove(){
-  int antal = new Random().nextInt(n.getHeap()/2)+1;
-  n.remove(antal);
+  public int dumbMove(){
+  return (new Random().nextInt(n.getHeap()/2)+1);
 
   }
 }

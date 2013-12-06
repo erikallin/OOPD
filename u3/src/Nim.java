@@ -6,15 +6,15 @@ public class Nim {
 
     Game a = new Game();
 
-    ComputerPlayer com = new ComputerPlayer(true);
-    
+    ComputerPlayer com = new ComputerPlayer(false);
+
     Scanner input = new Scanner(System.in);
-    
+
     a.printHeap();
-    
+
     while(a.getHeap() != 0) {
       a.remove(input.nextInt());
-      a.remove(com.dumbMove());
+      a.remove(com.makeMove());
     }
 
   }

@@ -33,9 +33,4 @@ public class Game {
       System.out.println("Ugyldigt træk! prøv igen: ");
   }
 
-
-  public boolean gameOver() {
-    return (this.heap == 0);
-  }
-
 }

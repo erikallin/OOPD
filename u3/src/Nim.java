@@ -6,14 +6,11 @@ public class Nim {
 
     Game a = new Game();
 
-    ComputerPlayer com = new ComputerPlayer(false);
+    ComputerPlayer com = new ComputerPlayer(true);
 
-    a.printHeap();
-
-    while(!(a.gameOver())) {
+    while(a.getHeap() != 0) {
       a.remove(new Scanner(System.in).nextInt());
-      // Computeren skal generere trækket her og sende det til Game()
-//      a.remove(3);
+      com.dumbMove();
     }
 
   }

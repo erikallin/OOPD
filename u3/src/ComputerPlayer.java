@@ -14,7 +14,7 @@ public class ComputerPlayer {
   }
   public void smartMove(){
     if (n.getHeap() <= 3)
-      n.remove (n.getHeap() - 1);
+      n.remove (1);
     else if (n.getHeap() > 3 && n.getHeap() <= 7)
       n.remove (n.getHeap() - 3);
     else if (n.getHeap() > 7 && n.getHeap() <= 15)
@@ -27,8 +27,10 @@ public class ComputerPlayer {
       n.remove (n.getHeap() - 63);
       
   }
-  public int dumbMove(){
-  return (new Random().nextInt(n.getHeap()/2)+1);
+  public void dumbMove(){
+  int remove = new Random().nextInt(n.getHeap()/2)+1;
+  System.out.println("Computeren fjerner " + remove);
+  n.remove (remove);
 
   }
 }

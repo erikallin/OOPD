@@ -4,11 +4,7 @@ public class Game {
   private int heap;
 
   public Game() {
-
     this.heap = new Random().nextInt(90)+10;
-
-
-
   }
 
   public void printHeap() {

@@ -7,10 +7,14 @@ public class Nim {
     Game a = new Game();
 
     ComputerPlayer com = new ComputerPlayer(true);
-
+    
+    Scanner input = new Scanner(System.in);
+    
+    a.printHeap();
+    
     while(a.getHeap() != 0) {
-      a.remove(new Scanner(System.in).nextInt());
-      com.dumbMove();
+      a.remove(input.nextInt());
+      a.remove(com.dumbMove());
     }
 
   }

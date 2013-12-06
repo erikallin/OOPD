@@ -12,25 +12,39 @@ public class ComputerPlayer {
    else
      dumbMove();
   }
-  public void smartMove(){
-    if (n.getHeap() <= 3)
-      n.remove (1);
-    else if (n.getHeap() > 3 && n.getHeap() <= 7)
-      n.remove (n.getHeap() - 3);
-    else if (n.getHeap() > 7 && n.getHeap() <= 15)
-      n.remove (n.getHeap() - 7);
-    else if (n.getHeap() > 15 && n.getHeap() <= 31)
-      n.remove (n.getHeap() - 15);
-    else if (n.getHeap() > 31 && n.getHeap() <= 63)
-      n.remove (n.getHeap() - 31);
-    else
-      n.remove (n.getHeap() - 63);
-      
+  public int smartMove(){
+    if (n.getHeap() == 3 || n.getHeap() == 7 || n.getHeap() == 15
+       || n.getHeap() == 31 || n.getHeap() == 63)
+       return dumbMove();
+    else if (n.getHeap() < 3){
+      System.out.println("Computeren fjerner " + 1);
+      return (1);
+    }
+    else if (n.getHeap() < 7){
+      System.out.println("Computeren fjerner " + (n.getHeap() - 3));
+      return (n.getHeap() - 3);
+    }
+    else if (n.getHeap() < 15){
+      System.out.println("Computeren fjerner " + (n.getHeap() - 7));
+      return (n.getHeap() - 7);
+    }
+    else if (n.getHeap() < 31){
+      System.out.println("Computeren fjerner " + (n.getHeap() - 15));
+      return (n.getHeap() - 15);
+    }
+    else if (n.getHeap() < 63){
+      System.out.println("Computeren fjerner " + (n.getHeap() - 31));
+      return (n.getHeap() - 31);
+    }
+    else{
+      System.out.println("Computeren fjerner " + (n.getHeap() - 63));
+      return (n.getHeap() - 63);
+    }
   }
-  public void dumbMove(){
-  int remove = new Random().nextInt(n.getHeap()/2)+1;
-  System.out.println("Computeren fjerner " + remove);
-  n.remove (remove);
+  public int dumbMove(){
+    int fjern = new Random().nextInt(n.getHeap()/2)+1;
+    System.out.println("Computeren fjerner " + fjern);
+    return (fjern);
 
   }
 }

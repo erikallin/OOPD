@@ -3,7 +3,7 @@ import java.util.Random;
 public class ComputerPlayer {
 
   private boolean isDumbfuck;
-  private Game n = new Game();
+  //private Game n = new Game();
 
   public ComputerPlayer(boolean difficulty) {
 
@@ -31,7 +31,7 @@ public class ComputerPlayer {
 
     else if (n.getHeap() < 3) {
       System.out.println("Computeren fjerner 1");
-      return (1);
+      return 1;
     }
     else if (n.getHeap() < 7) {
       System.out.println("Computeren fjerner " + (n.getHeap() - 3));
@@ -55,14 +55,15 @@ public class ComputerPlayer {
     }
   }
 
-  public int dumbMove(){
+  public int dumbMove() {
     int fjern = new Random().nextInt(n.getHeap()/2)+1;
 
-    if (n.isLegit(fjern)) {
+    while (!n.isLegit(fjern)) {
+      fjern = new Random().nextInt(n.getHeap()/2)+1;
+    }
+
       System.out.println("Computeren fjerner " + fjern);
       return (fjern);
-    }
-    return new Random().nextInt(n.getHeap()/2)+1;
 
   }
 }

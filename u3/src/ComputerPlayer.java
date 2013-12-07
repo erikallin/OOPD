@@ -2,12 +2,10 @@ import java.util.Random;
 
 public class ComputerPlayer {
 
-  private boolean isDumbfuck;
-  //private Game n = new Game();
+  Game n = new Game();
 
-  public ComputerPlayer(boolean difficulty) {
+  public ComputerPlayer() {
 
-    this.isDumbfuck = difficulty;
     /*
     if (difficulty)
      smartMove();
@@ -16,10 +14,13 @@ public class ComputerPlayer {
      */
   }
 
-  public int makeMove() {
-    if (this.isDumbfuck)
+  public int makeMove(int difficulty) {
+    if (difficulty == 1){
+      System.out.println("computeren tror heapets størelse er " + n.getHeap());
       return smartMove();
+    }
     else
+      System.out.println("computeren tror heapets størelse er " + n.getHeap());
       return dumbMove();
   }
 
@@ -58,9 +59,9 @@ public class ComputerPlayer {
   public int dumbMove() {
     int fjern = new Random().nextInt(n.getHeap()/2)+1;
 
-    while (!n.isLegit(fjern)) {
-      fjern = new Random().nextInt(n.getHeap()/2)+1;
-    }
+ //   while (!n.isLegit(fjern)) {
+   //   fjern = new Random().nextInt(n.getHeap()/2)+1;
+ //   }
 
       System.out.println("Computeren fjerner " + fjern);
       return (fjern);

@@ -6,17 +6,17 @@ public class Nim {
 
     Game a = new Game();
 
-    ComputerPlayer com = new ComputerPlayer(true);
+    ComputerPlayer com = new ComputerPlayer();
+
 
     Scanner input = new Scanner(System.in);
-
     a.printHeap();
 
     while(a.getHeap() != 0) {
       System.out.print("Indtast et nummer mellem 1 og " +
                         (a.getHeap()/2) + ": ");
       a.remove(input.nextInt());
-      a.remove(com.makeMove());
+      a.remove(com.makeMove(1));
     }
 
   }

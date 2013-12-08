@@ -14,16 +14,25 @@ public class ComputerPlayer {
      */
   }
 
+  /**
+   * Bestemmer om computeren foretager et smart eller dumt valg.
+   * @param difficulty Computerens sværhedsgrad
+   * @return hvorvidt computeren foretager et smartMove eller et dumbMove.
+   */
   public int makeMove(int difficulty) {
     if (difficulty == 1){
-      System.out.println("computeren tror heapets størelse er " + n.getHeap());
+      System.out.println("Computeren tror heapets størrelse er " + n.getHeap());
       return smartMove();
     }
     else
-      System.out.println("computeren tror heapets størelse er " + n.getHeap());
+      System.out.println("Computeren tror heapets størrelse er " + n.getHeap());
       return dumbMove();
   }
 
+  /**
+   * Definerer computerens smarte valg af kugler den tager fra heapet.
+   * @return antal kugler computeren tager fra heapet
+   */
   public int smartMove(){
 
     if (n.getHeap() == 3 || n.getHeap() == 7 || n.getHeap() == 15 ||
@@ -55,7 +64,10 @@ public class ComputerPlayer {
       return (n.getHeap() - 63);
     }
   }
-
+  /**
+   * Definerer computerens dumme valg af kugler den tager fra heapet.
+   * @return antal kugler computeren tager fra heapet
+   */
   public int dumbMove() {
     int fjern = new Random().nextInt(n.getHeap()/2)+1;
 

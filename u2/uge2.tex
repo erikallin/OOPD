@@ -60,8 +60,7 @@
 
 \section*{Kode}
 \subsection*{makeBold}
-Denne funktion bruges til velkomstteksten, men kan bruges til andet, hvis det
-bliver nødvendigt.
+Denne funktion bruges til at gøre velkomstteksten bold.
 
 
 \subsection*{newBoard}
@@ -69,21 +68,18 @@ Ved at overskrive det bræt, som allerede findes, fås et tomt bræt.
 
 
 \subsection*{printBoard}
-Funktionen løber hele multiarrayet igennem og printer et mellemrum hvis feltet
+Funktionen løber hele multiarrayet igennem og printer et mellemrum hvis feltet 
 ikke er optaget, ellers indholdet i feltet.\\
 Hvis det er det yderste felt til højre vil der tilføjes endnu en "|" for at få
 et pænt bræt.
 
 
 \subsection*{gameOver}
-Ser om pladen er fyldt eller om der er tre ens på stribe.
-
-
+Ser om der er tre ens på stribe. (Desværre brute-forced)
 
 
 \subsection*{play}
-Starter spillet. Det kører indtil gameOver() returnerer sandt, derefter spørger
-den om man vil spille igen.
+Starter spillet. Det kører indtil !gameOver() returnerer sand eller tallet fullBoard (der repræsenterer antallet af mulige pladser i spillet) counter ned til 0. Derefter spørger den om man vil spille igen.
 
 \subsection*{isOccupied}
 Ser om det ønskede felt er optaget, dvs. om der ligger et X eller O, da det er de gyldige brikker.
@@ -93,11 +89,11 @@ Først tjekkes der om feltet er optaget og hvis det er, så skriver i rødt at f
 
 
 \section*{Overvejelser}
-\subsection*{Inputtyper}
+\subsection*{Input-typer}
 Vi har valgt at sige at bruger kun kan benytte sig af 0, 1, 2, X og O. Vi har valgt ikke
 at teste for om brugers input er legalt og derfor kan programmet slutte uventet.
 
-\subsection*{Outputformat}
+\subsection*{Output-format}
 Da hele gruppen bruger en form for terminal som er ANSI-kompatibel, har vi
 valgt af benytte os af dette. Der hvor det benyttes er ved ugyldige input og ved
 starten af et nyt spil.

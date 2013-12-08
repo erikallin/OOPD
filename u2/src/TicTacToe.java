@@ -118,7 +118,7 @@ public class TicTacToe {
   private static void play() {
     newBoard();
     System.out.println(makeBold("Let the game begin!\n"));
-    int i = 9; // Antal pladser
+    int fullBoard = 9; // Antal pladser
 
        int x, y; // koordinater
        char tegn = 0;
@@ -134,15 +134,15 @@ public class TicTacToe {
 
          if (isLegalChar(tegn) && isLegalCoord(x, y)) {
            placeMove(x, y, tegn); 
-           i--;
+           fullBoard--;
          } 
          else {
            System.out.println("Tegn og koordinat skal være legale!");
            //continue;
          }
        }
-       while (i > 0 && !gameOver()); // Enten bliver pladen fyldt, ellers har vi en vinder fra gameOver()
-       if (i == 0)
+       while (fullBoard > 0 && !gameOver()); // Enten bliver pladen fyldt, ellers har vi en vinder fra gameOver()
+       if (fullBoard == 0)
        	System.out.println("Uafgjort!");
        else
          System.out.println("Vinderen er: " + tegn);

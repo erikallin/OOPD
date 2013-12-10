@@ -30,6 +30,7 @@ public class Nim {
 	    while(a.getHeap() > 0) {
 	      if (a.getHeap() == 1) {
 	    	  System.out.println("Du vandt");
+	    	  break;
 	      }
 	    	a.remove(com.makeMove());
 	      System.out.print("Indtast et nummer mellem 1 og " +
@@ -38,6 +39,7 @@ public class Nim {
 	      a.remove(inpt);
 	      if (a.getHeap() == 0) {
 	    	  System.out.println("Computeren vandt");
+	    	  break;
                	}
 	    }
     }

@@ -1,5 +1,6 @@
 import java.util.Random;
 import java.util.Scanner;
+
 public class Nim {
   public static void main(String[] _) {
 	int starter = new Random().nextInt(2);
@@ -40,7 +41,7 @@ public class Nim {
 	      if (a.getHeap() == 0) {
 	    	  System.out.println("Computeren vandt");
 	    	  break;
-               	}
+        }
 	    }
     }
   }

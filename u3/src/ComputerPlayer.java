@@ -1,16 +1,17 @@
 import java.util.Random;
+
 public class ComputerPlayer {
   private Game n;
   private int difficulty;
-  public ComputerPlayer(Game n) {
-    this.n = n;
 
-this.difficulty = new Random().nextInt(2);
   /**
    * Bestemmer om computeren foretager et smart eller dumt valg.
    * @param difficulty Computerens sværhedsgrad
    * @return hvorvidt computeren foretager et smartMove eller et dumbMove.
    */
+  public ComputerPlayer(Game n) {
+    this.n = n;
+    this.difficulty = new Random().nextInt(2);
   }
   public int makeMove() {
     if (this.difficulty == 1) {
@@ -20,12 +21,13 @@ this.difficulty = new Random().nextInt(2);
       return dumbMove();
   }
 }
+
   /**
    * Definerer computerens smarte valg af kugler den tager fra heapet.
    * @return antal kugler computeren tager fra heapet
    */
   public int smartMove() {
-	  int WONT_GET_THERE = 0;
+	  int WONT_GET_THERE = -1;
 
 	  for (int i = 1; i <= n.getHeap(); i++)
 		  if (n.getHeap() < (int) Math.pow(2, i) - 1) {

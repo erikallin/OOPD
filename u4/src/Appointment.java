@@ -20,6 +20,7 @@ public class Appointment {
     this.day = d;
   }
 
-
-
+  public String occursOn(int year, int month, int day) {
+    
+  }
 }

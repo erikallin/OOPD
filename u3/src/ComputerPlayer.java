@@ -5,7 +5,7 @@ public class ComputerPlayer {
   public ComputerPlayer(Game n) {
     this.n = n;
 
-this.difficulty = 1;//new Random().nextInt(2);
+this.difficulty = new Random().nextInt(2);
   /**
    * Bestemmer om computeren foretager et smart eller dumt valg.
    * @param difficulty Computerens sværhedsgrad
@@ -14,9 +14,11 @@ this.difficulty = 1;//new Random().nextInt(2);
   }
   public int makeMove() {
     if (this.difficulty == 1) {
+      System.out.println("Computeren er smart");
       return smartMove();
     }
     else {
+      System.out.println("Computeren er dum");
       return dumbMove();
   }
 }
@@ -26,19 +28,21 @@ this.difficulty = 1;//new Random().nextInt(2);
    */
   public int smartMove() {
 	  int WONT_GET_THERE = 0;
-	  for (int i = 2; i < 6; i++)
+
+	  for (int i = 1; i <= n.getHeap(); i++)
+		  if (n.getHeap() < (int) Math.pow(2, i) - 1) {
+			  System.out.println("Computeren fjerner " + (n.getHeap() - ((int) Math.pow(2, i - 1) - 1)));
+			  System.out.println("SMART, tror heap er " + n.getHeap());
+			  return (n.getHeap() - ((int) Math.pow(2, i - 1) - 1));
+          }
+
+   for (int i = 2; i < 6; i++)
 		  if (n.getHeap() % ((int) (Math.pow(2, i) - 1)) == 0) {
-			  System.out.println("DUMB, tror heap er" + n.getHeap());
+			  System.out.println("DUMB, tror heap er " + n.getHeap());
 			  return dumbMove();
 		  }
 
-	  
-	  for (int i = 1; i < 6; i++)
-		  if (n.getHeap() < (int) Math.pow(2, i) - 1) {
-			  System.out.println("Computeren fjerner " + (n.getHeap() - ((int) Math.pow(2, i - 1) - 1)));
-			  System.out.println("SMTART, tror heap er" + n.getHeap());
-			  return (n.getHeap() - ((int) Math.pow(2, i - 1) - 1));
-          }
+
 	  return WONT_GET_THERE;
   }
    /**

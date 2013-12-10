@@ -2,10 +2,10 @@ import java.util.Random;
 
 public class ComputerPlayer {
 
-  Game n = new Game();
+  private Game n;
 
-  public ComputerPlayer() {
-
+  public ComputerPlayer(Game n) {
+    this.n = n;
     /*
     if (difficulty)
      smartMove();

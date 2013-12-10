@@ -6,7 +6,7 @@ public class Nim {
     Game a = new Game();
     ComputerPlayer com = new ComputerPlayer(a);
     Scanner input = new Scanner(System.in);
-        
+
     a.printHeap();
     if (starter == 1) {
     	System.out.println("Du starter.");
@@ -19,14 +19,14 @@ public class Nim {
 	    	  break;
 	      }
 	      if (a.getHeap() == 1) {
-	    	  System.out.println("DU VANDT!!!!!! :D:D:D:D:D");
+	    	  System.out.println("Tillykke, du vandt!");
 	    	  break;
 	      }
 	      a.remove(com.makeMove());
 	    }
     }
 	else {
-    	System.out.println("Datamaten starter.");
+    	System.out.println("Computeren starter");
 	    while(a.getHeap() > 0) {
 	      if (a.getHeap() == 1) {
 	    	  System.out.println("Du vandt");
@@ -37,7 +37,7 @@ public class Nim {
 	      int inpt = input.nextInt();
 	      a.remove(inpt);
 	      if (a.getHeap() == 0) {
-	    	  System.out.println("Datamaten vandt");
+	    	  System.out.println("Computeren vandt");
                	}
 	    }
     }

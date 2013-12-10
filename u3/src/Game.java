@@ -21,7 +21,7 @@ public class Game {
   /**
   * Tjekker om der er et 'lovligt' antal kugler.
   * @param number Den integer, der skal være lovlig.
-  * @return om number er en logliv integer.
+  * @return om number er en lovlig integer.
   */
   public boolean isLegit(int number) {
     return ((number > 0 && number <= heap / 2) || number == 1);

@@ -37,11 +37,9 @@ public class ComputerPlayer {
 			  	return (n.getHeap() - ((int) Math.pow(2, i - 1) - 1));
 			  }
 			/*
-			* Her tjekkes der om heapets længde er det som 2^i - 1.
-			* Når dette er tilfældet skal der trækkes en fra 2^i - 1,
-			* vi får altså 2^i - 2.
-			* Hvis dette ikke gøres, så trækker computeren 0 fra, hvilket
-			* ikke er et gyldigt tal.
+			* Undgår at computeren tager 0 kugler, når der er præcis
+			* (2^i - 1) kugler tilbage.
+			* Trækker 1 kugle istedet.
 			*/ 
 			  else {
 			  	System.out.println("Computeren fjerner "

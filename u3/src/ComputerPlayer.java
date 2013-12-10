@@ -31,10 +31,25 @@ public class ComputerPlayer {
 
 	  for (int i = 1; i <= n.getHeap(); i++)
 		  if (n.getHeap() < (int) Math.pow(2, i) - 1) {
-			  System.out.println("Computeren fjerner "
-             + (n.getHeap() - ((int) Math.pow(2, i - 1) - 1)));
-			  return (n.getHeap() - ((int) Math.pow(2, i - 1) - 1));
+			  if (n.getHeap() - ((int) Math.pow(2, i - 1) - 1) != 0) {
+			  	System.out.println("Computeren fjerner "
+             + (n.getHeap() - ((int) Math.pow(2, i - 1) - 1))); 
+			  	return (n.getHeap() - ((int) Math.pow(2, i - 1) - 1));
+			  }
+			/*
+			* Her tjekkes der om heapets længde er det som 2^i - 1.
+			* Når dette er tilfældet skal der trækkes en fra 2^i - 1,
+			* vi får altså 2^i - 2.
+			* Hvis dette ikke gøres, så trækker computeren 0 fra, hvilket
+			* ikke er et gyldigt tal.
+			*/ 
+			  else {
+			  	System.out.println("Computeren fjerner "
+             + (n.getHeap() - ((int) Math.pow(2, i - 1) - 2)));
+			  	return (n.getHeap() - ((int) Math.pow(2, i - 1)  - 2));
           }
+      }
+
 
    for (int i = 2; i < 6; i++)
 		  if (n.getHeap() % ((int) (Math.pow(2, i) - 1)) == 0) {

@@ -37,7 +37,7 @@ public class Game {
 	  int tmp = number;
 	  while (!isLegit(tmp)) {
 		  System.out.print("Dette nummer er desværre ugyldigt." +
-				" Indtast venligstet nummer mellem 1 og " + getHeap()/2 + ": ");
+				" Indtast venligst nummer mellem 1 og " + getHeap()/2 + ": ");
 		  Scanner input = new Scanner(System.in);
 		  tmp = input.nextInt();
 	  }

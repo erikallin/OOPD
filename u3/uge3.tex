@@ -1,4 +1,7 @@
 \documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
 
 \title{\textbf{OOPD - u3}}
 \author{Emil Lagoni\\Erik Allin\\Peter Spliid}
@@ -13,5 +16,6 @@ Der er undervejs i opgaven blevet gjort flere overvejelser ud af hvordan vi får
 Derudover har en implementation af sværhedsgrad el. dumbMove/smartMove også været noget der har givet mulighed for problemer.
 
 \subsection*{Implementation af computer}
-Computeren har problemer med at holde styr på heapets størrelse, og foretager derfor nogle gange valg, der ikke er mulige.
+Computeren har problemer med at holde styr på heapets størrelse, og foretager derfor nogle gange valg, der ikke er mulige.\\
+Da vores smartMove() er sikret et return i en af løkkerne, men Java ikke kan finde ud af det, har vi lavet en variabel som ikke bliver brugt.
 \end{document}

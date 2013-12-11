@@ -14,12 +14,10 @@ public class ComputerPlayer {
     this.difficulty = new Random().nextInt(2);
   }
   public int makeMove() {
-    if (this.difficulty == 1) {
+    if (this.difficulty == 1)
       return smartMove();
-    }
-    else {
+    else
       return dumbMove();
-  }
 }
 
   /**

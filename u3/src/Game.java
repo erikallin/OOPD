@@ -1,15 +1,18 @@
-	import java.util.Random;
+import java.util.Random;
 import java.util.Scanner;
+
 public class Game {
   private int heap;
-  /*
+
+  /**
   * Starter spillet med at generere en integer mellem 10 og 100, der angiver
   * størrelsen på heapet.
   */
   public Game() {
     this.heap = new Random().nextInt(91) + 10;
   }
-  /*
+
+  /**
   * Printer heapets størrelse.
   */
   public void printHeap() {
@@ -18,6 +21,7 @@ public class Game {
   public int getHeap() {
     return this.heap;
   }
+
   /**
   * Tjekker om der er et 'lovligt' antal kugler.
   * @param number Den integer, der skal være lovlig.
@@ -35,11 +39,11 @@ public class Game {
  */
   public void remove(int number) {
 	  int tmp = number;
+
 	  while (!isLegit(tmp)) {
 		  System.out.print("Dette nummer er desværre ugyldigt." +
 				" Indtast venligst nummer mellem 1 og " + getHeap()/2 + ": ");
-		  Scanner input = new Scanner(System.in);
-		  tmp = input.nextInt();
+		  tmp = new Scanner(System.in).nextInt();
 	  }
       this.heap -= tmp;
       this.printHeap();

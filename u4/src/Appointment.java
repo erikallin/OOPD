@@ -1,6 +1,8 @@
+import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Appointment {
+  private ArrayList<String> list = new ArrayList<String>();
   private int year, month, day;
   private String appointment;
   
@@ -21,6 +23,6 @@ public class Appointment {
   }
 
   public String occursOn(int year, int month, int day) {
-    
+    return "TODO";
   }
 }

@@ -3,46 +3,34 @@ import java.util.Scanner;
 
 public class Nim {
   public static void main(String[] _) {
-	int starter = new Random().nextInt(2);
     Game a = new Game();
     ComputerPlayer com = new ComputerPlayer(a);
     Scanner input = new Scanner(System.in);
 
     a.printHeap();
-    if (starter == 1) {
-    	System.out.println("Du starter.");
-	    while(a.getHeap() > 0) {
-	      System.out.print("Indtast et nummer mellem 1 og " +
-	                        (a.getHeap()/2) + ": ");
-	      a.remove(input.nextInt());
-	      if (a.getHeap() == 0) {
-	    	  System.out.println("Computeren vandt, noob");
-	    	  break;
-	      }
-	      if (a.getHeap() == 1) {
-	    	  System.out.println("Tillykke, du vandt!");
-	    	  break;
-	      }
-	      a.remove(com.makeMove());
-	    }
+
+    if (new Random().nextInt(2) == 1) {
+      System.out.println("Du starter");
+      System.out.print("Indtast et nummer mellem 1 og " +
+                           (a.getHeap()/2) + ": ");
+      a.remove(input.nextInt());
     }
-	else {
-    	System.out.println("Computeren starter");
-	    while(a.getHeap() > 0) {
-	      if (a.getHeap() == 1) {
-	    	  System.out.println("Du vandt");
-	    	  break;
-	      }
-	    	a.remove(com.makeMove());
-	      System.out.print("Indtast et nummer mellem 1 og " +
-            (a.getHeap()/2) + ": ");
-	      int inpt = input.nextInt();
-	      a.remove(inpt);
-	      if (a.getHeap() == 0) {
-	    	  System.out.println("Computeren vandt");
-	    	  break;
-        }
-	    }
+    else
+      System.out.println("Computeren starter");
+       while(a.getHeap() > 0) {
+      if (a.getHeap() == 1) {
+         System.out.println("Du vandt");
+         break;
+      }
+       a.remove(com.makeMove());
+      System.out.print("Indtast et nummer mellem 1 og " +
+          (a.getHeap()/2) + ": ");
+      int inpt = input.nextInt();
+      a.remove(inpt);
+      if (a.getHeap() == 0) {
+         System.out.println("Computeren vandt");
+         break;
+      }
     }
   }
 }

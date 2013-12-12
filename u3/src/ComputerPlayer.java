@@ -24,35 +24,28 @@ public class ComputerPlayer {
    * Definerer computerens smarte valg af kugler den tager fra heapet.
    * @return antal kugler computeren tager fra heapet
    */
-  public int smartMove() {
+    public int smartMove() {
 	  int WONT_GET_THERE = -1;
+	  int avoidZero = new Random().nextInt(n.getHeap()/2)+1;
 
 	  for (int i = 1; i <= n.getHeap(); i++)
-		  if (n.getHeap() < (int) Math.pow(2, i) - 1) {
-			  if (n.getHeap() - ((int) Math.pow(2, i - 1) - 1) != 0) {
-			  	System.out.println("Computeren fjerner "
-             + (n.getHeap() - ((int) Math.pow(2, i - 1) - 1))); 
-			  	return (n.getHeap() - ((int) Math.pow(2, i - 1) - 1));
-			  }
-			/*
-			* Undgår at computeren tager 0 kugler, når der er præcis
-			* (2^i - 1) kugler tilbage.
-			* Trækker 1 kugle istedet.
-			*/ 
+	    if (n.getHeap() < (int) Math.pow(2, i) - 1) {
+		  if (n.getHeap() - ((int) Math.pow(2, i - 1) - 1) != 0) {
+		    System.out.println("Computeren fjerner "
+              + (n.getHeap() - ((int) Math.pow(2, i - 1) - 1))); 
+			  return (n.getHeap() - ((int) Math.pow(2, i - 1) - 1));
+		  }
 			  else {
 			  	System.out.println("Computeren fjerner "
-             + (n.getHeap() - ((int) Math.pow(2, i - 1) - 2)));
-			  	return (n.getHeap() - ((int) Math.pow(2, i - 1)  - 2));
-          }
-      }
-
-
-   for (int i = 2; i < 6; i++)
-		  if (n.getHeap() % ((int) (Math.pow(2, i) - 1)) == 0) {
-			  return dumbMove();
-		  }
-
-	  return WONT_GET_THERE;
+             + avoidZero);
+			  	return avoidZero;
+              }
+        }
+      for (int i = 2; i < 6; i++)
+	    if (n.getHeap() % ((int) (Math.pow(2, i) - 1)) == 0) {
+	      return dumbMove();
+		}
+      return WONT_GET_THERE;
   }
    /**
    * Definerer computerens dumme valg af kugler den tager fra heapet.

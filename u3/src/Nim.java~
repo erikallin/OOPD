@@ -27,7 +27,7 @@ public class Nim {
       a.remove(com.makeMove());
 
       System.out.print("Indtast et nummer mellem 1 og " +
-        (a.getHeap()/2) + ": ");
+                      (a.getHeap()/2) + ": ");
 
       int inpt = input.nextInt();
       a.remove(inpt);

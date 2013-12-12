@@ -29,27 +29,27 @@ public class ComputerPlayer {
   * @return antal kugler computeren tager fra heapet
   */
   public int smartMove() {
-	  int WONT_GET_THERE = -1;
-	  int avoidZero = new Random().nextInt(n.getHeap()/2)+1;
+	   int WONT_GET_THERE = -1;
+	   int avoidZero = new Random().nextInt(n.getHeap()/2)+1;
 
-	  for (int i = 1; i <= n.getHeap(); i++)
-	    if (n.getHeap() < (int) Math.pow(2, i) - 1) {
-		    if (n.getHeap() - ((int) Math.pow(2, i - 1) - 1) != 0) {
-		      System.out.println("Computeren fjerner "
+	   for (int i = 1; i <= n.getHeap(); i++)
+      if (n.getHeap() < (int) Math.pow(2, i) - 1) {
+        if (n.getHeap() - ((int) Math.pow(2, i - 1) - 1) != 0) {
+		        System.out.println("Computeren fjerner "
             + (n.getHeap() - ((int) Math.pow(2, i - 1) - 1)));
-			    return (n.getHeap() - ((int) Math.pow(2, i - 1) - 1));
-		    }
-			  else {
-			  	System.out.println("Computeren fjerner "
+			       return (n.getHeap() - ((int) Math.pow(2, i - 1) - 1));
+		      }
+			     else {
+			  	    System.out.println("Computeren fjerner "
             + avoidZero);
-			  	return avoidZero;
+			  	    return avoidZero;
         }
       }
-    for (int i = 2; i < 6; i++)
-	    if (n.getHeap() % ((int) (Math.pow(2, i) - 1)) == 0) {
-	      return dumbMove();
-		  }
-      return WONT_GET_THERE;
+      for (int i = 2; i < 6; i++)
+	       if (n.getHeap() % ((int) (Math.pow(2, i) - 1)) == 0) {
+	         return dumbMove();
+		      }
+        return WONT_GET_THERE;
    }
 
   /**

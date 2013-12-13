@@ -47,10 +47,10 @@ public class Game {
     int tmp = number;
 
     while (!isLegit(tmp)) {
-	    System.out.print("Dette nummer er desværre ugyldigt." +
-	      "Indtast venligst nummer mellem 1 og " + getHeap()/2 + ": ");
+      System.out.print("Dette nummer er desværre ugyldigt." +
+        "Indtast venligst nummer mellem 1 og " + getHeap()/2 + ": ");
       tmp = new Scanner(System.in).nextInt();
-	  }
+    }
     this.heap -= tmp;
     this.printHeap();
   }

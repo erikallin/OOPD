@@ -1,8 +1,11 @@
 public class Monthly extends Appointment {
 
-  public Monthly(int m, String description) {
-   super(m, description);
+  public Monthly(int y, int m, int d, String description) {
+    super(y, m, d, description);
   }
-
+  public void print() {
+    for (String i : super.getEvent("M"))
+      System.out.print(i);
+  }
 
 }

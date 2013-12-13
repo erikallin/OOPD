@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import java.io.*;
 import java.nio.charset.*;
@@ -8,40 +7,54 @@ public class Calendar implements Serializable {
 
   public static void main(String[] _)
     throws IOException, ClassNotFoundException {
-    //Appointment a = new Daily(1, "LEL");
 
     ArrayList<String> appointments = new ArrayList<String>();
-   // System.out.println(System.getProperty("KalenderFil.txt"));
 
+    int d, m, y;
+    String dis, occ;
+    File f = new File("KalenderFil.csv");
+    Charset UTF8 = Charset.forName("UTF-8");
+    Scanner input = new Scanner(System.in);
 
-      File f = new File("KalenderFil.txt");
-      Charset UTF8 = Charset.forName("UTF-8");
-      Writer writer = new OutputStreamWriter (new FileOutputStream(f), UTF8);
-      writer.write("Hej med dig");
+    if (!f.exists()) {
+      FileOutputStream fos = new FileOutputStream(f);
+      Writer writer = new OutputStreamWriter(fos, UTF8);
       writer.close();
+    }
+    FileOutputStream fos = new FileOutputStream(f, true);
+    Writer writer = new OutputStreamWriter(fos, UTF8);
+    System.out.print("Day: ");
+    d = input.nextInt();
+    System.out.print("Month: ");
+    m = input.nextInt();
+    System.out.print("Year: ");
+    y = input.nextInt();
+    System.out.print("Description: ");
+    input.nextLine();
+    dis = input.nextLine();
+    System.out.print("O - One Time\nD - Daily\nM - Monthly: ");
+    occ = input.nextLine();
+    input.close();
 
+    writer.write(d + ";" + m + ";" + y + ";" + dis + ";" + occ + "\n");
+    writer.close();
 
-/* ObjectOutputStream outStream = new ObjectOutputStream(new FileOutputStream(f), UTF8);
-      outStream.writeObject("Bf\n ost \n lol");
-      outStream.close(); */
-/*
-      String x = "";
-  ObjectInputStream in = new ObjectInputStream(new FileInputStream(f));
-  for (int i = 0; i < 1; i++)
-    x += i;
-  //a = (Daily) in.readObject();
-  in.close();
-*/
+    BufferedReader br = new BufferedReader(new FileReader(f));
+    String line = br.readLine();
 
+    while (line != null) {
+      for (String i : line.split(";"))
+        System.out.print(i + " ");
 
-      BufferedReader br = new BufferedReader(new FileReader("KalenderFil.txt"));
-      String x = "trooloololol";
+      line = br.readLine();
+      System.out.println();
+    }
 
-      while(br.readLine() != null)
-        System.out.println(br.readLine());
+  Appointment aa = new Monthly(1,2,3,"Fuck");
+
+  aa.print();
+
 
   }
-  ArrayList appointment = new ArrayList();
 
-       //appointment.add(Daily());
 }

@@ -1,34 +1,55 @@
 import java.util.ArrayList;
-import java.io.Serializable;
+import java.io.*;
 
 
-public class Appointment implements Serializable {
+
+public abstract class Appointment {
   protected int year, month, day;
-  private ArrayList<Daily> appointments;
+  protected String description;
 
 
-  public Appointment(int date, String description) {
-    appointments = new ArrayList<Daily>();
-    //appointments.add(1, "");
-    //new FileOutputStream("Kalender.txt");
 
+  public Appointment(int year, int month, int day, String description) {
+    this.day = day;
+    this.month = month;
+    this.year = year;
+    this.description = description;
   }
 
- //public Appointments()
 
- public void SkrivTilFil(int input) {
+  public ArrayList<String> getEvent(String t) {
+    ArrayList<String> tard = new ArrayList<String>();
 
- }
+    String[] type;
+    try {
+    BufferedReader br = new BufferedReader(new FileReader("KalenderFil.csv"));
+    String line = br.readLine();
 
+    while (line != null) {
+      type = line.split(";");
+      if (t.equals(type[4]))
+        tard.add(line);
+    }
+
+
+    }
+    catch(Exception e) {}
+
+
+    return tard;
+  }
+
+
+  public void makeOneTime (char[] enGang) {
+
+
+  }
 
 
   public boolean occursOn(int year, int month, int day) {
 
-    //if (year == randomYear && month == randomMonth && day == lolDay)
-
     return true;
   }
 
-
-
+  public abstract void print();
 }

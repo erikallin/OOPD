@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 
-public class Appointment {
+public abstract Appointment {
   private ArrayList<String> list = new ArrayList<String>();
   private int year, month, day;
   private String appointment;

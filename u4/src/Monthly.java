@@ -1,5 +1,4 @@
-public class Monthly implements Appointment {
-
+public class Monthly extends Appointment {
 
   public Monthly() {
   

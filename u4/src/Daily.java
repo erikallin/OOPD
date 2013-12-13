@@ -1,4 +1,4 @@
-public class Daily implements Appointment {
+public class Daily extends Appointment {
 
   public Daily() {
   

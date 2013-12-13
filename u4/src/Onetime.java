@@ -1,4 +1,4 @@
-public class Onetime implements Appointment {
+public class Onetime extends Appointment {
 
   public Onetime() {
     

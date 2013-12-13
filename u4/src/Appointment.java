@@ -30,7 +30,7 @@ public abstract class Appointment {
           type = line.split(";");
           for (String i : type) {
             if (t.equals(type[4]))
-              tard.add(line);
+              tard.add(line.replace(";", " "));
 
       line = br.readLine();
       }
@@ -49,10 +49,7 @@ public abstract class Appointment {
   }
 
 
-  public boolean occursOn(int year, int month, int day) {
-
-    return true;
-  }
+    public abstract ArrayList<Appointment> occursOn(int year, int month, int day);
 
   public abstract void print();
 }

@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Monthly extends Appointment {
 
   public Monthly(int y, int m, int d, String description) {
@@ -10,4 +12,10 @@ public class Monthly extends Appointment {
     }
   }
 
+  public ArrayList<Appointment> occursOn(int year, int month, int day) {
+    ArrayList<Appointment> occurs = new ArrayList<Appointment>();
+
+    return occurs;
+  }
+  
 }

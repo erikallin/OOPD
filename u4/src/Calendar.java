@@ -38,7 +38,7 @@ public class Calendar implements Serializable {
 
     writer.write(d + ";" + m + ";" + y + ";" + dis + ";" + occ + "\n");
     writer.close();
-
+/*
     BufferedReader br = new BufferedReader(new FileReader(f));
     String line = br.readLine();
 
@@ -49,6 +49,7 @@ public class Calendar implements Serializable {
       line = br.readLine();
       System.out.println();
     }
+*/
 
   Appointment aa = new Monthly(1,2,3,"Fuck");
 

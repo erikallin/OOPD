@@ -22,17 +22,20 @@ public abstract class Appointment {
 
     String[] type;
     try {
-    BufferedReader br = new BufferedReader(new FileReader("KalenderFil.csv"));
-    String line = br.readLine();
+      BufferedReader br = new BufferedReader(new FileReader("KalenderFil.csv"));
+      String line = br.readLine();
 
-    while (line != null) {
-      type = line.split(";");
-      if (t.equals(type[4]))
-        tard.add(line);
+
+        while (line != null) {
+          type = line.split(";");
+          for (String i : type) {
+            if (t.equals(type[4]))
+              tard.add(line);
+
+      line = br.readLine();
+      }
     }
-
-
-    }
+  }
     catch(Exception e) {}
 
 

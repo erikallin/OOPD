@@ -1,7 +1,8 @@
 public class Onetime extends Appointment {
 
-  public Onetime() {
-    
+  public Onetime(int o, String description) {
+    super(o, description);
+
   }
 
 }

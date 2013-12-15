@@ -1,14 +1,19 @@
 import java.util.ArrayList;
 import java.io.*;
 
-
-
 public abstract class Appointment {
+
   protected int year, month, day;
   protected String description;
 
-
-
+  /**
+   * Definerer en appointment/begivenhed.
+   *
+   * @param year Årstallet begivenheden finder sted i.
+   * @param month Måneden begivenheden finder sted i.
+   * @param day Dagen begivenheden finder sted i.
+   * @param description Beskrivelsen af begivenheden.
+   */
   public Appointment(int year, int month, int day, String description) {
     this.day = day;
     this.month = month;
@@ -16,40 +21,45 @@ public abstract class Appointment {
     this.description = description;
   }
 
-
+  /**
+   * Returnerer appointments fra eks. en bestemt dato.
+   *
+   * @param t Eks. den dato der hentes appointments fra.
+   * @return En liste over appointments fra den pågældende dato.
+   */
   public ArrayList<String> getEvent(String t) {
-    ArrayList<String> tard = new ArrayList<String>();
+    ArrayList<String> events = new ArrayList<String>();
 
     String[] type;
     try {
       BufferedReader br = new BufferedReader(new FileReader("KalenderFil.csv"));
       String line = br.readLine();
 
+      while (line != null) {
+        type = line.split(";");
+        for (String i : type) {
+          if (t.equals(type[4])) {
+            events.add(line.replace(";", " "));
+          }
 
-        while (line != null) {
-          type = line.split(";");
-          for (String i : type) {
-            if (t.equals(type[4]))
-              tard.add(line.replace(";", " "));
-
-      line = br.readLine();
+          line = br.readLine();
+        }
       }
+    } catch (Exception e) {
     }
-  }
-    catch(Exception e) {}
 
-
-    return tard;
+    return events;
   }
 
-
-  public void makeOneTime (char[] enGang) {
-
-
-  }
-
-
-    public abstract ArrayList<Appointment> occursOn(int year, int month, int day);
+  /**
+   * Tjekker om der befinder sig en begivenhed på den pågældende dag.
+   *
+   * @param year Årstallet begivenheden finder sted i.
+   * @param month Måneden begivenheden finder sted i.
+   * @param day Dagen begivenheden finder sted i.
+   * @return listen over begivenheder der finder sted på den pågældende dag.
+   */
+  public abstract ArrayList<Appointment> occursOn(int year, int month, int day);
 
   public abstract void print();
 }

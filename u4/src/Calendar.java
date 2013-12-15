@@ -5,12 +5,13 @@ import java.util.Scanner;
 
 public class Calendar implements Serializable {
 
+
   public static void main(String[] _)
     throws IOException, ClassNotFoundException {
 
     ArrayList<String> appointments = new ArrayList<String>();
 
-    int d, m, y;
+    int day, month, year;
     String dis, occ;
     File f = new File("KalenderFil.csv");
     Charset UTF8 = Charset.forName("UTF-8");
@@ -24,11 +25,11 @@ public class Calendar implements Serializable {
     FileOutputStream fos = new FileOutputStream(f, true);
     Writer writer = new OutputStreamWriter(fos, UTF8);
     System.out.print("Day: ");
-    d = input.nextInt();
+    day = input.nextInt();
     System.out.print("Month: ");
-    m = input.nextInt();
+    month = input.nextInt();
     System.out.print("Year: ");
-    y = input.nextInt();
+    year = input.nextInt();
     System.out.print("Description: ");
     input.nextLine();
     dis = input.nextLine();
@@ -36,7 +37,7 @@ public class Calendar implements Serializable {
     occ = input.nextLine();
     input.close();
 
-    writer.write(d + ";" + m + ";" + y + ";" + dis + ";" + occ + "\n");
+    writer.write(day + ";" + month + ";" + year + ";" + dis + ";" + occ + "\n");
     writer.close();
 /*
     BufferedReader br = new BufferedReader(new FileReader(f));
@@ -51,9 +52,9 @@ public class Calendar implements Serializable {
     }
 */
 
-  Appointment aa = new Monthly(1,2,3,"Fuck");
+  Appointment test = new Monthly(1,2,3,"Test");
 
-  aa.print();
+  test.print();
 
 
   }

@@ -1,0 +1,85 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%Sidehoved
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+%Rydder fancyheads(sidehoved) underlige tekst
+\fancyhf{}
+\setlength{\headheight}{15pt}
+%Sidetal
+\cfoot[]{\thepage}
+%Centreret sidehoved
+\chead{Emil Lagoni, Erik Allin, Peter Spliid}
+%Halvanden linjeafstand
+\usepackage{setspace}
+\onehalfspacing
+
+
+\title{\textbf{OOPD - u4}}
+\author{Emil Lagoni\\Erik Allin\\Peter Spliid}
+
+\begin{document}
+\maketitle
+\section*{Kode}
+\subsection*{Appointment}
+\subsubsection*{Appointment}
+Definerer en appointment ved at den har et årtal, en måned, et dag og en beskrivelse.
+
+
+\subsubsection*{getEvent}
+Metoden skal kunne returnere appointments fra en specifik dato.
+
+
+\subsubsection*{occursOn}
+Tjekker om der befinder sig en begivenhed på den pågældende dag.
+
+
+
+\subsection*{OneTime}
+\subsubsection*{Onetime}
+Opretter en oneTime begivenhed.
+
+\subsubsection*{print}
+Printer alle oneTime begivenheder ud.
+
+\subsubsection*{occursOn}
+Tjekker om alle oneTime appointments foregår på en bestemt dato.
+
+
+\subsection*{Daily}
+\subsubsection*{Daily}
+Opretter en daily begivenhed.
+
+\subsubsection*{print}
+Printer alle daily begivenheder ud.
+
+\subsubsection*{occursOn}
+Tjekker om alle daily appointments foregår på en bestemt dato.
+
+
+\subsection*{Monthly}
+\subsubsection*{Monthly}
+Opretter en monthly begivenhed.
+
+\subsubsection*{print}
+Printer alle monthly begivenheder ud.
+
+\subsubsection*{occursOn}
+Tjekker om alle monthly appointments foregår på en bestemt dato.
+
+
+\subsection*{Calendar}
+Holder styr på hvilken fil der skal skrives og hentes data fra (KalenderFil.csv). Derudover sørger klassen for at filen ikke bliver overskrevet, men at der blot skrives mere ind. \\
+Klassen beder også brugeren om at indtaste dag, måned, år og beskrivelse på begivenheden der indtastes samt om det er en O (onetime), D (daily) eller M (monthly) begivenhed. \\
+Til sidst skrives der ud hvad filen indeholder, og programmet terminerer.
+
+\section*{Overvejelser}
+Der har undervejs været en lang række overvejelser. \\
+Den nok største har været: "\textit{Hvad skal de forskellige klasser gøre, og hvordan skal de i forbindelse med disse funktioner arbejde sammen?}" \\
+Herudover har vi undervejs overvejet hvordan kalenderen skulle repræsenteres (indskrives/hentes ud) i filen. Dette gjorde også at vi gik fra et .txt dokument til et .csv dokument, da en kalender burde kunne gøres pæn i et excel miljø.
+
+
+
+
+\end{document}

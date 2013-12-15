@@ -35,5 +35,4 @@ public class Onetime extends Appointment {
     return occurs;
   }
 
-
 }

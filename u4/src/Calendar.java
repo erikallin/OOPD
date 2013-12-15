@@ -39,22 +39,11 @@ public class Calendar implements Serializable {
 
     writer.write(day + ";" + month + ";" + year + ";" + dis + ";" + occ + "\n");
     writer.close();
-/*
-    BufferedReader br = new BufferedReader(new FileReader(f));
-    String line = br.readLine();
 
-    while (line != null) {
-      for (String i : line.split(";"))
-        System.out.print(i + " ");
 
-      line = br.readLine();
-      System.out.println();
-    }
-*/
+    Appointment test = new Monthly(1,2,3,"Test");
 
-  Appointment test = new Monthly(1,2,3,"Test");
-
-  test.print();
+    test.print();
 
 
   }

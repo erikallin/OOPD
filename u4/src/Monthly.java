@@ -17,9 +17,10 @@ public class Monthly extends Appointment {
    * Printer alle monthly begivenheder ud.
    */
   public void print() {
-    for (String i : super.getEvent("M"))
+    for (String i : super.getEvent("M")) {
       System.out.print(i);
       System.out.println();
+    }
   }
 
   /**

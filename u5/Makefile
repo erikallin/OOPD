@@ -38,8 +38,8 @@ clean:
 
 # Kører .java filerne i src mappen
 run: jBuild
-	cd bin; java -ea $(MAIN)
-
+#	cd bin; java -ea $(MAIN)
+	java -ea -cp ./lib/junit-4.10.jar:./bin $(MAIN)
 # Undertrykker det spam en normal Makefile laver
 .SILENT:
 #http://xkcd.com/1296/

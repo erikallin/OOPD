@@ -4,6 +4,7 @@ MAIN=Demo
 UGE=uge5
 TEXFLAGS=-synctex=1 -interaction=nonstopmode --shell-escape
 JDOCFLAGS=-author -private -charset UTF-8 -quiet
+JFLAGS=-cp ./lib/junit-4.11.jar
 
 .start:
 	mkdir -p bin doc
@@ -12,7 +13,7 @@ all: jBuild lBuild doc
 
 # Oversætter javakoden
 jBuild: .start
-	find src -type f -name "*.java" -print | xargs javac -d bin/
+	find src -type f -name "*.java" -print | xargs javac $(JFLAGS) -d bin/
 	@echo "Javaklasserne er bygget"
 
 # Bygger pdf'en
@@ -37,7 +38,7 @@ clean:
 
 # Kører .java filerne i src mappen
 run: jBuild
-	cd bin; java $(MAIN)
+	cd bin; java -ea $(MAIN)
 
 # Undertrykker det spam en normal Makefile laver
 .SILENT:

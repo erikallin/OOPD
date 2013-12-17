@@ -27,29 +27,6 @@ public abstract class Appointment {
    * @param t Eks. den dato der hentes appointments fra.
    * @return En liste over appointments fra den pågældende dato.
    */
-  public ArrayList<String> getEvent(String t) {
-    ArrayList<String> events = new ArrayList<String>();
-
-    String[] type;
-    try {
-      BufferedReader br = new BufferedReader(new FileReader("KalenderFil.csv"));
-      String line = br.readLine();
-
-      while (line != null) {
-        type = line.split(";");
-        for (String i : type) {
-          if (t.equals(type[4])) {
-            events.add(line.replace(";", " "));
-          }
-
-          line = br.readLine();
-        }
-      }
-    } catch (Exception e) {
-    }
-
-    return events;
-  }
 
   /**
    * Tjekker om der befinder sig en begivenhed på den pågældende dag.
@@ -59,7 +36,10 @@ public abstract class Appointment {
    * @param day Dagen begivenheden finder sted i.
    * @return listen over begivenheder der finder sted på den pågældende dag.
    */
-  public abstract ArrayList<Appointment> occursOn(int year, int month, int day);
+  public abstract boolean occursOn(int year, int month, int day);
 
+  /**
+   * Printer alle aftaler
+   */
   public abstract void print();
 }

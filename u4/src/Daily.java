@@ -17,22 +17,18 @@ public class Daily extends Appointment {
    * Printer alle daily begivenheder ud.
    */
   public void print() {
-    for (String i : super.getEvent("D"))
-      System.out.print(i);
-      System.out.println();
-  }
+ }
 
   /**
    * Tjekker om alle daily appointments foregår på en bestemt dato.
    * @param year Årstallet der tjekkes på.
    * @param month Måneden der tjekkes på.
    * @param day Dagen der tjekkes på.
-   * @return En liste over appointments, der findes på den pågældende dato.
+   * @return Om der findes en aftale på den pågældende dato.
    */
-  public ArrayList<Appointment> occursOn(int year, int month, int day) {
-    ArrayList<Appointment> occurs = new ArrayList<Appointment>();
+  public boolean occursOn(int year, int month, int day) {
 
-    return occurs;
+    return super.year >= year && super.month >= month && super.day >= day;
   }
 
 

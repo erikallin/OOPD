@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class Onetime extends Appointment {
 
   /**
@@ -16,23 +14,23 @@ public class Onetime extends Appointment {
   /**
    * Printer alle daily begivenheder ud.
    */
+  @Override
   public void print() {
-    for (String i : super.getEvent("O"))
-      System.out.print(i);
-      System.out.println();
-  }
+    System.out.println("");
+
+ }
 
   /**
    * Tjekker om alle oneTime appointments foregår på en bestemt dato.
    * @param year Årstallet der tjekkes på.
    * @param month Måneden der tjekkes på.
    * @param day Dagen der tjekkes på.
-   * @return En liste over appointments, der findes på den pågældende dato.
+   * @return Om der findes en aftale på den pågældende dato.
    */
-  public ArrayList<Appointment> occursOn(int year, int month, int day) {
-    ArrayList<Appointment> occurs = new ArrayList<Appointment>();
+ @Override
+  public boolean occursOn(int year, int month, int day) {
 
-    return occurs;
+    return this.year == year && this.month == month && this.day == day;
   }
 
 }

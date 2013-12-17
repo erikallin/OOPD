@@ -16,11 +16,9 @@ public class Monthly extends Appointment {
   /**
    * Printer alle monthly begivenheder ud.
    */
+  @Override
   public void print() {
-    for (String i : super.getEvent("M")) {
-      System.out.print(i);
-      System.out.println();
-    }
+
   }
 
   /**
@@ -30,10 +28,10 @@ public class Monthly extends Appointment {
    * @param day Dagen der tjekkes på.
    * @return En liste over appointments, der findes på den pågældende dato.
    */
-  public ArrayList<Appointment> occursOn(int year, int month, int day) {
-    ArrayList<Appointment> occurs = new ArrayList<Appointment>();
+  @Override
+  public boolean occursOn(int year, int month, int day) {
 
-    return occurs;
+    return this.year >= year && this.month >= month && this.day == day;
   }
 
 }

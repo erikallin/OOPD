@@ -8,7 +8,7 @@ public class Calendar implements Serializable {
 
   public static void main(String[] _)
     throws IOException, ClassNotFoundException {
-
+/*
     ArrayList<String> appointments = new ArrayList<String>();
 
     int day, month, year;
@@ -39,7 +39,7 @@ public class Calendar implements Serializable {
 
     writer.write(day + ";" + month + ";" + year + ";" + dis + ";" + occ + "\n");
     writer.close();
-
+*/
 
     Appointment test = new Monthly(1,2,3,"Test");
 

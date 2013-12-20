@@ -1,40 +1,38 @@
-import java.io.*;
-import java.net.URL;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Demo {
 
   public static void main(String[] _) throws IOException {
 
-    
-    String address = "http://www.erduidiot.dk";
-    URL pageLocation = new URL(address);
-    Scanner in = new Scanner(pageLocation.openStream());
-    File f = new File("Output.txt");
-    while (in.hasNext("")) {
-       String line = in.next();   
-     
-          int from = line.indexOf("\"");
-          int to = line.lastIndexOf("\"");
-          System.out.print(line);
-       
-           
-       
-       
-       StringBuffer sb = new StringBuffer(line);
-    try {
-      FileWriter write = new FileWriter(f);
-      BufferedWriter bwriter = new BufferedWriter(write);
-      bwriter.write(sb.toString());
-      if (!(in.hasNext()))
-        bwriter.close();
-    }
-    catch(Exception e){}
-    
-    
-  
-    }
-    
-  }
+    String input;
+    WebPage a = null;
+    String file;
+    String url;
+    String prompt = "Hvad vil du foretage dig? \n"
+        + "s = Skriv et nyt URL's data til en fil \n"
+        + "p = Print URL'ens data. \n" + "q = Luk programmet";
 
+    System.out.println("Hvad vil du foretage dig? \n"
+        + "s = Skriv et URL's data til en fil \n" + "q = Luk programmet");
+    while (!(input = new Scanner(System.in).next()).equals("q")) {
+
+      if (input.equals("s")) {
+        System.out.print("Skriv venligst en URL: ");
+        url = "http://" + (new Scanner(System.in)).next();
+        System.out.print("Skriv venligst et filnavn: ");
+        file = (new Scanner(System.in)).next() + ".html";
+        a = new WebPage(url, file);
+        a.storeAsText();
+        System.out.println("Filen er skrevet til" + file);
+        System.out.println(prompt);
+      }
+
+      if (input.equals("p")) {
+        System.out.print("Skriv venligst et filnavn: ");
+        a.print();
+        System.out.println(prompt);
+      }
+    }
+  }
 }

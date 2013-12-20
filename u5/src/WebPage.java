@@ -8,8 +8,21 @@ public class WebPage {
   }
 
 
+  
+  public void print() {
+    
+  }
+  
+  
   public void storeAsText() {
 
   }
 
+  
+  public void loadAsText() {
+    
+  }
+  
+  
+  
 }

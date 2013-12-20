@@ -31,5 +31,4 @@ public class Daily extends Appointment {
     return super.year >= year && super.month >= month && super.day >= day;
   }
 
-
 }

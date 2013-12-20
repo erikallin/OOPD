@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Onetime extends Appointment {
 
   /**
@@ -16,7 +18,7 @@ public class Onetime extends Appointment {
    */
   @Override
   public void print() {
-    System.out.println("");
+
 
  }
 
@@ -32,5 +34,6 @@ public class Onetime extends Appointment {
 
     return this.year == year && this.month == month && this.day == day;
   }
+
 
 }

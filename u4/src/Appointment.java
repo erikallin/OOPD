@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.io.*;
-
 public abstract class Appointment {
 
   protected int year, month, day;
@@ -9,9 +6,9 @@ public abstract class Appointment {
   /**
    * Definerer en appointment/begivenhed.
    *
-   * @param year Årstallet begivenheden finder sted i.
-   * @param month Måneden begivenheden finder sted i.
-   * @param day Dagen begivenheden finder sted i.
+   * @param year Årstallet begivenheden finder sted på.
+   * @param month Måneden begivenheden finder sted på.
+   * @param day Dagen begivenheden finder sted på.
    * @param description Beskrivelsen af begivenheden.
    */
   public Appointment(int year, int month, int day, String description) {
@@ -21,13 +18,11 @@ public abstract class Appointment {
     this.description = description;
   }
 
-  /**
-   * Returnerer appointments fra eks. en bestemt dato.
-   *
-   * @param t Eks. den dato der hentes appointments fra.
-   * @return En liste over appointments fra den pågældende dato.
-   */
-
+  public String get() {
+    return description;
+    
+  }
+  
   /**
    * Tjekker om der befinder sig en begivenhed på den pågældende dag.
    *
@@ -38,8 +33,11 @@ public abstract class Appointment {
    */
   public abstract boolean occursOn(int year, int month, int day);
 
+  
   /**
-   * Printer alle aftaler
+   * Printer alle aftaler.
    */
   public abstract void print();
-}
+
+  }
+

@@ -31,7 +31,7 @@ public class Calendar implements Serializable {
                 
         // Skriv til filen "Kalenderfil.csv"
         try {
-          File f = new File("Kalenderfil.txt");
+          File f = new File("Kalenderfil.csv");
           ObjectOutputStream outStream = new ObjectOutputStream(new FileOutputStream(f));
           outStream.writeObject(random.get(0));
           outStream.close();
@@ -42,7 +42,8 @@ public class Calendar implements Serializable {
         Appointment anotherObject = new Daily(3, 2, 1900, "Læser fra fil");
         try {
           File f = new File("Kalenderfil.txt");    
-          ObjectInputStream inStream = new ObjectInputStream(new FileInputStream(f));
+          ObjectInputStream inStream =
+                new ObjectInputStream(new FileInputStream(f));
           anotherObject = (Appointment) inStream.readObject();
           inStream.close();
         }
@@ -98,6 +99,5 @@ public class Calendar implements Serializable {
 
     test.print();
 
-
-}
+  }
 }

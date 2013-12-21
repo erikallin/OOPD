@@ -39,7 +39,7 @@ public class Demo {
       if (input.equals("l")) {
         System.out.print("Indtast venligst filnavn: ");
         String links = (new Scanner(System.in)).next();
-        WebPage.test(links);
+        WebPage.getLinks(links + ".html");
         System.out.println(prompt);
       }
     }

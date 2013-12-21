@@ -20,13 +20,17 @@ public class WebPage {
     this.file = file;
   }
 
-  public static void test(String fil) throws FileNotFoundException {
+  /**
+   * Skriver alle links ud
+   * @param fil Den ønskede fil man vil finde links i
+   */
+  public static void getLinks(String fil) throws FileNotFoundException {
     ArrayList<String> urlListe = new ArrayList<>();
     String tmp = "";
-    Pattern pattern = Pattern.compile("<a href=(.*?)</a>");
-    Scanner t = new Scanner(new FileReader(fil));
 
-    int i = 0;
+    String regexPattern = "(<a href=(.*?)</a>)|(<a href=(.*?)/>)";
+    Pattern pattern = Pattern.compile(regexPattern);
+    Scanner t = new Scanner(new FileReader(fil));
 
     while (t.hasNextLine())
       tmp+=t.nextLine();

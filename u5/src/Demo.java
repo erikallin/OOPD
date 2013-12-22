@@ -11,18 +11,18 @@ public class Demo {
     String url;
     String prompt = "Hvad vil du foretage dig? \n"
         + "s = Skriv et nyt URL's data til en fil \n"
-        + "l = Printer alle hyperlinks fra en fil\n"
-        + "p = Print URL'ens data. \n" + "q = Luk programmet";
+        + "l = Print alle hyperlinks fra en eksisterende fil\n"
+        + "p = Print den seneste URL's data. \n" + "q = Luk programmet";
 
     System.out.println("Hvad vil du foretage dig? \n"
         + "s = Skriv et URL's data til en fil \n"
-        + "l = Printer alle hyperlinks fra en fil\n"+ "q = Luk programmet");
+        + "l = Print alle hyperlinks fra en eksisterende fil\n"+ "q = Luk programmet");
     while (!(input = new Scanner(System.in).next()).equals("q")) {
 
       if (input.equals("s")) {
         System.out.print("Skriv venligst en URL: ");
         url = "http://" + (new Scanner(System.in)).next();
-        System.out.print("Skriv venligst et filnavn: ");
+        System.out.print("Skriv venligst et filnavn : ");
         file = (new Scanner(System.in)).next() + ".html";
         a = new WebPage(url, file);
         a.storeAsText();

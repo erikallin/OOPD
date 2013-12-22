@@ -24,15 +24,15 @@ public class WebPage {
     ArrayList<String> urlListe = new ArrayList<>();
     String tmp = "";
 
-    String regexPattern = "(<a href=(.*?)</a>)|(<a href=(.*?)/>)";
+    String regexPattern = ("<a href(.*?)>");
     Pattern pattern = Pattern.compile(regexPattern);
     Scanner t = new Scanner(new FileReader(fil));
 
     while (t.hasNextLine())
       tmp+=t.nextLine();
 
-    Matcher matcher = pattern.matcher(tmp);
-   
+    Matcher matcher = pattern.matcher(tmp); 
+    
    while (matcher.find())
      System.out.println(matcher.group(0));
   }

@@ -17,8 +17,8 @@ public class WebPage {
   }
 
   /**
-   * Skriver alle links ud
-   * @param fil Den ønskede fil man vil finde links i
+   * Skriver alle links ud.
+   * @param fil Den ønskede fil man vil finde hyperlinks i.
    */
   public static void getLinks(String fil) throws FileNotFoundException {
     ArrayList<String> urlListe = new ArrayList<>();
@@ -37,12 +37,19 @@ public class WebPage {
      System.out.println(matcher.group(0));
   }
 
+  
+  /**
+   * Printer en URL's (der er gemt ned på en .html fil) data.
+   */
   public void print() throws FileNotFoundException {
     Scanner p = new Scanner(new FileReader(file));
     while (p.hasNext())
       System.out.println(p.nextLine());
   }
 
+  /**
+   * Skriver en URL's data ned til en .html fil.
+   */
   public void storeAsText() throws IOException {
     URL pageLocation = new URL(this.url);
     BufferedWriter writer;
@@ -62,6 +69,9 @@ public class WebPage {
     in.close();
   }
 
+  /**
+   * Endnu ikke implementeret
+   */
   public void loadAsText() {
 
   }

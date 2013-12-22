@@ -19,10 +19,8 @@ public class Onetime extends Appointment {
   @Override
   public void print() {
 
-  }
-
   /**
-   * Tjekker om alle oneTime appointments foregår på en bestemt dato.
+   * Tjekker om der er en 'oneTime appointment' på en bestemt dato.
    * @param year Årstallet der tjekkes på.
    * @param month Måneden der tjekkes på.
    * @param day Dagen der tjekkes på.
@@ -33,6 +31,5 @@ public class Onetime extends Appointment {
 
     return this.year == year && this.month == month && this.day == day;
   }
-
 
 }

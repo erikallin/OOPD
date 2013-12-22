@@ -22,11 +22,11 @@ public class Monthly extends Appointment {
   }
 
   /**
-   * Tjekker om alle monthly appointments foregår på en bestemt dato.
+   * Tjekker om der er en 'monthly appointment' på en bestemt dato.
    * @param year Årstallet der tjekkes på.
    * @param month Måneden der tjekkes på.
    * @param day Dagen der tjekkes på.
-   * @return En liste over appointments, der findes på den pågældende dato.
+   * @return om der er en aftale på den ønskede dag.
    */
   @Override
   public boolean occursOn(int year, int month, int day) {

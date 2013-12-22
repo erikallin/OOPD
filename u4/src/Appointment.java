@@ -18,10 +18,6 @@ public abstract class Appointment {
     this.description = description;
   }
 
-  public String get() {
-    return description;
-    
-  }
   
   /**
    * Tjekker om der befinder sig en begivenhed på den pågældende dag.
@@ -29,7 +25,7 @@ public abstract class Appointment {
    * @param year Årstallet begivenheden finder sted i.
    * @param month Måneden begivenheden finder sted i.
    * @param day Dagen begivenheden finder sted i.
-   * @return listen over begivenheder der finder sted på den pågældende dag.
+   * @return om der er en begivenhed på den pågældende dag.
    */
   public abstract boolean occursOn(int year, int month, int day);
 

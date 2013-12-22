@@ -24,7 +24,7 @@ public class WebPage {
     ArrayList<String> urlListe = new ArrayList<>();
     String tmp = "";
 
-    String regexPattern = ("<a href(.*?)/>|<a href(.*?)</a>");
+    String regexPattern = ("(?i)<a href(.*?)>(.*?)</a>");
     Pattern pattern = Pattern.compile(regexPattern);
     Scanner t = new Scanner(new FileReader(fil));
 
@@ -33,8 +33,8 @@ public class WebPage {
 
     Matcher matcher = pattern.matcher(tmp); 
     
-   while (matcher.find())
-     System.out.println(matcher.group(0));
+    while (matcher.find())
+      System.out.println(matcher.group(0));
   }
 
   

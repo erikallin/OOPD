@@ -19,8 +19,7 @@ public class Onetime extends Appointment {
   @Override
   public void print() {
 
-
- }
+  }
 
   /**
    * Tjekker om alle oneTime appointments foregår på en bestemt dato.

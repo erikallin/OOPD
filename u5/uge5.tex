@@ -26,5 +26,21 @@
 Se javadoc
 
 \section*{Overvejelser}
+\subsection*{getLinks}
+Først har vi valgt at søge for links som har tekst. \\
+Da udviklere har forskellig kodestil, har vi valgt at der søges i "case insensitve".
+
+\section*{Testning}
+For at teste programmet er der blevet kørt de forskellige funktioner på bl.a. Google.dk og Youtube.com \\
+Ved funktionen der skriver en URL's data til en fil ("s" i CLI'en) lykkes det at smide alt koden korrekt ind, 
+der er altså ikke noget der står forkert i forhold til det originale, ikke forkerte newlines mm. \\
+Ved print-funktionen ("p i CLI'en), der printer indholdet af den seneste lavede fil ind i terminalen 
+foregår tingene også korrekt. \\
+Endeligt har der været meget arbejde med printningen af hyperlinks ("l" i CLI'en), der tager et filnavn på en
+tidligere lavet fil, og printer alle hyperlinks, samt deres "detaljer/tekst/navn" ind i terminalen. \\
+Dette virker efter hensigten, og der laves nye linjer på de korrekte tidspunker. \\
+Endeligt er der blevet testet at programmet kan lukke ("q" i CLI'en), der ganske enkelt fungerer ved et "break". \\
+Denne funktion virker som den skal.
+
 
 \end{document}

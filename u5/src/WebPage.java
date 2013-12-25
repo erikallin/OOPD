@@ -70,7 +70,7 @@ public class WebPage {
   }
 
   /**
-   * Endnu ikke implementeret
+   * Endnu ikke implementeret, da forståelsen af denne er uklar.
    */
   public void loadAsText() {
 

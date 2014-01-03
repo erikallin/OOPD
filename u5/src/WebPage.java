@@ -10,6 +10,7 @@ public class WebPage {
 
   private final String url;
   private final String file;
+  private static ArrayList<String> text;
 
   public WebPage(String url, String file) {
     this.url = url;
@@ -31,13 +32,13 @@ public class WebPage {
     while (t.hasNextLine())
       tmp+=t.nextLine();
 
-    Matcher matcher = pattern.matcher(tmp); 
-    
+    Matcher matcher = pattern.matcher(tmp);
+
     while (matcher.find())
       System.out.println(matcher.group(0));
   }
 
-  
+
   /**
    * Printer en URL's (der er gemt ned på en .html fil) data.
    */
@@ -72,8 +73,20 @@ public class WebPage {
   /**
    * Endnu ikke implementeret
    */
-  public void loadAsText() {
+  public static ArrayList<String> loadAsText(String fil) throws IOException {
+    try {
 
+      Scanner in = new Scanner(new File(fil));
+
+      while(in.hasNext())
+        text.add(in.next());
+    }
+
+    catch (IOException e) {
+      System.out.println("Ugyldig fil!");
+    }
+
+    return text;
   }
 
 }

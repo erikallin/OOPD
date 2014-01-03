@@ -1,10 +1,12 @@
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Demo {
 
   public static void main(String[] _) throws IOException {
 
+    ArrayList<String> text;
     String input;
     WebPage a = null;
     String file;
@@ -16,7 +18,9 @@ public class Demo {
 
     System.out.println("Hvad vil du foretage dig? \n"
         + "s = Skriv et URL's data til en fil \n"
-        + "l = Print alle hyperlinks fra en eksisterende fil\n"+ "q = Luk programmet");
+        + "l = Print alle hyperlinks fra en eksisterende fil\n"
+        + "q = Luk programmet\n"
+        + "h = Hent en lokal fil");
     while (!(input = new Scanner(System.in).next()).equals("q")) {
 
       if (input.equals("s")) {
@@ -40,6 +44,14 @@ public class Demo {
         System.out.print("Indtast venligst filnavn: ");
         String links = (new Scanner(System.in)).next();
         WebPage.getLinks(links + ".html");
+        System.out.println(prompt);
+      }
+
+      if (input.equals("h")) {
+        System.out.print("Indtast venligst filnavn: ");
+        String in = (new Scanner(System.in)).next();
+        text = WebPage.loadAsText(in);
+
         System.out.println(prompt);
       }
     }

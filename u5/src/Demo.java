@@ -6,7 +6,7 @@ public class Demo {
 
   public static void main(String[] _) throws IOException {
 
-    ArrayList<String> text;
+    ArrayList<String> text = new ArrayList<>();
     String input;
     WebPage a = null;
     String file;
@@ -36,7 +36,8 @@ public class Demo {
 
       if (input.equals("p")) {
         System.out.print("Skriv venligst et filnavn: ");
-        a.print();
+        String fil = (new Scanner(System.in)).next();
+        WebPage.print(fil);
         System.out.println(prompt);
       }
 
@@ -50,7 +51,7 @@ public class Demo {
       if (input.equals("h")) {
         System.out.print("Indtast venligst filnavn: ");
         String in = (new Scanner(System.in)).next();
-        text = WebPage.loadAsText(in);
+        text = WebPage.loadAsText(in + ".html");
 
         System.out.println(prompt);
       }

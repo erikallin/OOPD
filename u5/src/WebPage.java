@@ -10,7 +10,7 @@ public class WebPage {
 
   private final String url;
   private final String file;
-  private static ArrayList<String> text;
+  private ArrayList<String> text;
 
   public WebPage(String url, String file) {
     this.url = url;
@@ -42,8 +42,8 @@ public class WebPage {
   /**
    * Printer en URL's (der er gemt ned på en .html fil) data.
    */
-  public void print() throws FileNotFoundException {
-    Scanner p = new Scanner(new FileReader(file));
+  public static void print(String fil) throws FileNotFoundException {
+    Scanner p = new Scanner(new FileReader(fil));
     while (p.hasNext())
       System.out.println(p.nextLine());
   }
@@ -75,20 +75,21 @@ public class WebPage {
    */
   public static ArrayList<String> loadAsText(String fil)
     throws FileNotFoundException {
+    ArrayList<String> lelz = new ArrayList<>();
     try {
 
       Scanner in = new Scanner(new File(fil));
 
       while(in.hasNext())
-        text.add(in.nextLine());
+        lelz.add(in.nextLine());
 
     }
 
     catch (FileNotFoundException e) {
-      System.out.println("Ugyldig fil! " + e);
+      System.out.println("Ugyldig fil! ");
     }
 
-    return text;
+    return lelz;
   }
 
 }

@@ -73,17 +73,19 @@ public class WebPage {
   /**
    * Endnu ikke implementeret
    */
-  public static ArrayList<String> loadAsText(String fil) throws IOException {
+  public static ArrayList<String> loadAsText(String fil)
+    throws FileNotFoundException {
     try {
 
       Scanner in = new Scanner(new File(fil));
 
       while(in.hasNext())
-        text.add(in.next());
+        text.add(in.nextLine());
+
     }
 
-    catch (IOException e) {
-      System.out.println("Ugyldig fil!");
+    catch (FileNotFoundException e) {
+      System.out.println("Ugyldig fil! " + e);
     }
 
     return text;

@@ -1,4 +1,4 @@
 OOPD
 ====
 
-Så kører det for os!
+Så nærmer vi os slutningen!

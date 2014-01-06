@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class MergeSort<T> {
+public class MergeSort<T extends Comparable<T>> {
 
 
   public ArrayList<T> sort(ArrayList<T> liste) {
@@ -39,7 +39,7 @@ public class MergeSort<T> {
 
     while (left.size() > 0 || right.size() > 0) {
       if (left.size() > 0 && right.size() > 0) {
-        if ((left.get(0)).compareTo(right.get(0))) {
+        if (left.get(0).compareTo(right.get(0)) > 0) {
           merged.add(left.get(0));
           left.remove(0);
         }

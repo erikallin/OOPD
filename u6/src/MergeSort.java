@@ -12,24 +12,24 @@ public class MergeSort<T extends Comparable<T>> {
     if (liste.size() <= 1)
       return liste;
 
-    ArrayList<T> first = new ArrayList<>();
-    for (int i = 0; i < liste.size()/2; i++)
-      first.add(liste.get(i));
+    int middle = liste.size()/2;
+    ArrayList<T> left = new ArrayList<>();
+    for (int i = 0; i < middle; i++)
+      left.add(liste.get(i));
 
-    ArrayList<T> second = new ArrayList<>();
-    for (int i = 0;  i < liste.size() - first.size(); i++)
-      second.add(liste.get(first.size() + i));
+    ArrayList<T> right = new ArrayList<>();
+    for (int i = middle;  i < liste.size(); i++)
+      right.add(liste.get(i));
 
-    first = sort(first);
-    second = sort(second);
-
-    return first;
+    return new ArrayList<T>(merge(sort(left), sort(right)));
   }
 
   public <T> void sort(T[] liste) {
 
     if (liste.length <= 1)
       return;
+
+    int middle = liste.length / 2;
 
 
   }

@@ -37,7 +37,7 @@ clean:
 
 # Kører .java filerne i src mappen
 run: jBuild
-	cd bin; java $(MAIN)
+	java -ea -cp .lib/junit-4.11.jar:./bin $(MAIN)
 
 # Undertrykker det spam en normal Makefile laver
 .SILENT:

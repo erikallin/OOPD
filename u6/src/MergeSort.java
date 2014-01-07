@@ -24,12 +24,26 @@ public class MergeSort<T extends Comparable<T>> {
     return new ArrayList<T>(merge(sort(left), sort(right)));
   }
 
-  public <T> void sort(T[] liste) {
+  public T[] sort(T[] liste) {
 
     if (liste.length <= 1)
-      return;
+      return liste;
 
     int middle = liste.length / 2;
+    ArrayList<T> left = new ArrayList<>();
+    for (int i = 0; i < middle; i++)
+      left.add(liste[i]);
+
+    ArrayList<T> right = new ArrayList<>();
+    for (int i = middle;  i < liste.length; i++)
+      right.add(liste[i]);
+
+
+
+
+    ArrayList<T> a = (merge(sort(left), sort(right)));
+
+    for (int i = 0; i < liste.length; i++)
 
 
   }

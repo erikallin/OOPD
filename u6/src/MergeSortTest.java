@@ -14,7 +14,7 @@ public class MergeSortTest {
       unsorted.add((Integer) (new Random()).nextInt(100)+1);
 
 
-//    ArrayList<Integer> sorted = MergeSort.sort(unsorted);
+    ArrayList<Integer> sorted = new ArrayList<>(MergeSort.sort(unsorted));
 
 
   }

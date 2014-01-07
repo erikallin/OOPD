@@ -21,9 +21,9 @@ public class MergeSort<T extends Comparable<T>> {
     for (int i = middle;  i < liste.size(); i++)
       right.add(liste.get(i));
 
-    return new ArrayList<T>(merge(sort(left), sort(right)));
+    return (merge(sort(left), sort(right)));
   }
-
+/*
   public T[] sort(T[] liste) {
 
     if (liste.length <= 1)
@@ -40,13 +40,18 @@ public class MergeSort<T extends Comparable<T>> {
 
 
 
+    T[] sortedList;
 
     ArrayList<T> a = (merge(sort(left), sort(right)));
 
     for (int i = 0; i < liste.length; i++)
+      sortedList[i] = a.get(i);
 
+
+    return sortedList;
 
   }
+*/
 
   private ArrayList<T> merge(ArrayList<T> left, ArrayList<T> right) {
     ArrayList<T> merged = new ArrayList<>();
